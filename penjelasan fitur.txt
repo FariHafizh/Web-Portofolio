@@ -1,0 +1,3 @@
+Dalam proyek ini, saya menerapkan fitur slider menggunakan JavaScript. Fitur ini memungkinkan pengguna untuk melihat berbagai proyek atau karya yang telah saya kerjakan melalui sebuah slider. Setiap proyek diwakili oleh sebuah gambar, dan deskripsi terkait proyek tersebut akan berubah sesuai dengan gambar yang sedang ditampilkan.
+
+Slider terletak di bagian "Projects" pada halaman utama. Pengguna dapat melihat gambar proyek dan deskripsinya dengan menekan tombol "Next" dan "Previous"
