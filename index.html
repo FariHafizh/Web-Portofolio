@@ -4,46 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fari Portofolio</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        nav ul {
-            padding: 0;
-            list-style: none;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 20px;
-            display: flex;
-        }
-    </style>
+    <title>Fari's Portofolio</title>
+    <!-- Menghubungkan Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Menghubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -53,6 +19,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#software-info">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -62,13 +29,8 @@
         <div id="content">
             <article>
                 <h2>About Me</h2>
-                <p>Nama saya Fari Hafizh Nugroho, dan saya mahasiswa jurusan Ilmu Komputer di IPB University. Saya
-                    memiliki minat dan hobi yang kuat dalam dunia desain.
-                    Selama masa studi saya, saya telah berpartisipasi dalam berbagai proyek yang melibatkan pembuatan
-                    desain untuk aplikasi, website, dan proyek grafis lainnya.
-                    Pengalaman ini tidak hanya memperkuat keterampilan teknis saya, tetapi juga mengajarkan saya
-                    pentingnya komunikasi visual yang efektif dan bagaimana desain dapat mempengaruhi pengalaman
-                    pengguna.
+                <p>Hello! I'm a Computer Science student at IPB University with a strong passion for web development and UI/UX design. 
+                    I am always eager to learn new technologies and collaborate on challenging and innovative projects.
                 </p>
 
             </article>
@@ -76,37 +38,31 @@
                 <h2>Projects</h2>
                 <div class="slider-container">
                     <div class="slider">
-                        <div class="slider-inner">
-                            <div class="slide active">
-                                <img src="image/ittoday_logo.jpeg" alt="ittoday">
-                            </div>
-                            <div class="slide">
-                                <img src="image/Agriinformatics Logo.png" alt="agriinformatics">
-                            </div>
-                            <div class="slide">
-                                <img src="image/pekan ilkomerz.png" alt="pekanilkomerz">
-                            </div>
+                        <div class="slide">
+                            <img src="image/ittoday_logo.jpeg" alt="ittoday">
+                        </div>
+                        <div class="slide">
+                            <img src="image/Agriinformatics Logo.png" alt="agriinformatics">
+                        </div>
+                        <div class="slide">
+                            <img src="image/pekan ilkomerz.png" alt="pekanilkomerz">
                         </div>
                     </div>
                     <div class="project-descriptions">
                         <div class="description active">
                             <h3>IT Today 2023</h3>
-                            <p>IT Today merupakan acara tahunan yang diselenggarakan oleh Himpunan Mahasiswa Ilmu
-                                Komputer (Himalkom) IPB dan merupakan rangkaian kegiatan IT terbesar di IPB sejak tahun
-                                2003.</p>
+                            <p>The largest annual IT event at IPB University, organized by the Computer Science Student
+                                Association (Himalkom) since 2003.</p>
                         </div>
                         <div class="description">
                             <h3>Agriinformatics 2024</h3>
-                            <p>Agri-informatics merupakan rangkaian acara pengenalan komunitas-komunitas yang ada di
-                                departemen ilmu komputer. Komunitas-komunitas yang ada merupakan wadah yang disediakan
-                                untuk menjadi sarana pengembangan diri sesuai dengan minat kalian masing-masing!</p>
+                            <p>A series of events introducing the tech communities within the CS department, helping
+                                students find their niche and grow their skills.</p>
                         </div>
                         <div class="description">
                             <h3>Pekan Ilkomerz 2024</h3>
-                            <p>Pekan Ilkomerz adalah sebuah acara tahunan yang dirancang khusus untuk memperkenalkan
-                                Departemen Ilmu Komputer kepada mahasiswa baru. Acara ini berlangsung setiap tahun dan
-                                bertujuan untuk memberikan wawasan mendalam kepada mahasiswa tingkat awal tentang
-                                program studi, fasilitas, dan berbagai kegiatan yang ditawarkan oleh departemen.</p>
+                            <p>An annual event designed to introduce the Computer Science Department to new students,
+                                providing key insights into the curriculum, facilities, and activities.</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +75,7 @@
 
             <article id="software-info">
                 <h2>Software</h2>
-                <p>Berikut beberapa software yang saya pakai untuk editing ataupun mendesain.</p>
+                <h2>My Tech Stack</h2>
 
                 <ol>
                     <li>
@@ -143,9 +99,9 @@
 
             <article id="contact">
                 <h2>Contact</h2>
-                <p>Kalau mau ngobrol-ngobrol bisa hubungi melalui media dibawah :</p>
+                <h2>Get in Touch</h2>
                 <ul>
-                    <li>Email: farihafizh741@gmail.com</li>
+                    <li><strong>Email:</strong> <a href="mailto:farihafizh741@gmail.com">farihafizh741@gmail.com</a></li>
                     <li>Instagram: @farihfzh</li>
                     <li>LinkedIn: <a href="https://www.linkedin.com/in/fari-hafizh-nugroho-848552248/"
                             target="_blank">fari-hafizh-nugroho</a></li>
@@ -158,8 +114,8 @@
 
         <aside>
             <img src="image/me.png" alt="Profile Picture">
-            <p>Fari Hafizh Nugroho</p>
-            <p>Ilmu Komputer 59, IPB University</p>
+            <p>Computer Science Student</p>
+            <p>IPB University</p>
         </aside>
     </main>
 
@@ -167,7 +123,7 @@
         <p>&copy; 2024 Fari Hafizh Nugroho. All rights reserved.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 
 
