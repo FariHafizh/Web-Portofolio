@@ -24,4 +24,58 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Show the first slide initially
     showSlide(currentIndex);
+
+    // Scroll reveal animation
+    const revealables = document.querySelectorAll('.revealable');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    revealables.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+    // Navigation active link highlighting
+    const sections = document.querySelectorAll('article[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active-link');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
