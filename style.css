@@ -94,6 +94,10 @@ main {
     flex: 2;
 }
 
+.about-text p {
+    text-align: justify;
+}
+
 .about-text h2 {
     font-size: 3rem;
 }
@@ -104,11 +108,11 @@ main {
 }
 
 .about-image img {
-    width: 600px;
-    height: 600px;
+    width: 580px;
+    height: 580px;
     object-fit: cover;
     margin-bottom: 1rem;
-    margin-top: 2rem;
+    margin-top: 0.1rem;
 }
 
 /* Articles / Sections */
@@ -208,6 +212,30 @@ article[id] {
     color: var(--light-text-color);
 }
 
+.home-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.home-buttons a {
+    background-color: transparent;
+    color: var(--light-text-color);
+    border: 2px solid var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.home-buttons a:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--glow-shadow);
+    color: var(--light-text-color);
+}
+
 /* Software Info */
 #software-info ol {
     list-style: none;
@@ -272,6 +300,7 @@ footer {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-top: 2rem;
 }
 
 .revealable.visible {
