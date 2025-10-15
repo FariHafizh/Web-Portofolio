@@ -109,6 +109,18 @@ main {
 .about-image {
     flex: 2;
     text-align: center;
+    position: relative;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    height: 400px;
+    background: linear-gradient(to top, var(--primary-color), transparent);
+    pointer-events: none;
 }
 
 .about-image img {
@@ -116,7 +128,7 @@ main {
     height: 580px;
     object-fit: cover;
     margin-bottom: 1rem;
-    transform: translateY(-20px);
+    transform: translateY(-50px);
 }
 
 /* Articles / Sections */
