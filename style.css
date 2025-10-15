@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #0d0221;      /* Deep Space Blue/Purple */
-    --secondary-color: #a626d9;   /* Neon Purple */
+    --primary-color: #01100b;      /* Deep Space Blue/Purple */
+    --secondary-color: #29AB87;   /* Neon Green */
     --accent-color: #2DE2E6;      /* Neon Cyan */
     --background-color: #0a0a0a;  /* Near Black */
     --surface-color: #1a1a1d;     /* Dark Grey for cards */
     --text-color: #f0f0f0;        /* Light Grey/Off-white */
     --light-text-color: #ffffff;
     --border-radius: 8px;
-    --shadow: 0 0 15px rgba(166, 38, 217, 0.2);
+    --shadow: 0 0 15px rgba(57, 255, 20, 0.2);
     --glow-shadow: 0 0 8px var(--secondary-color);
 }
 
@@ -121,6 +121,7 @@ main {
     height: 400px;
     background: linear-gradient(to top, var(--primary-color), transparent);
     pointer-events: none;
+    z-index: 2;
 }
 
 .about-image img {
@@ -129,6 +130,22 @@ main {
     object-fit: cover;
     margin-bottom: 1rem;
     transform: translateY(-50px);
+    position: relative;
+    z-index: 1;
+}
+
+.about-image::before {
+    content: '';
+    position: absolute;
+    width: 580px;
+    height: 580px;
+    background-image: url('image/1d1053dc-185f-482e-991e-0a7905c60475_removalai_preview.png');
+    background-size: cover;
+    background-position: center;
+    top: -50px;
+    left: calc(50% - 200px); /* (580/2) - 40px shift */
+    z-index: 0;
+    filter: opacity(50%);
 }
 
 /* Articles / Sections */
