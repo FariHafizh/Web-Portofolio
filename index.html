@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Fari Hafizh Nugroho - web developer student showcasing skills, certificates, and contact information.">
     <title>Fari's Website</title>
     <!-- Menghubungkan Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -15,7 +16,7 @@
 <body>
     <header>
         <h1>Fari's Website</h1>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#software-info">Tech</a></li>
@@ -35,9 +36,9 @@
                             I am always eager to learn new technologies and collaborate on challenging and innovative projects.
                         </p>
                         <div class="home-buttons">
-                            <a href="https://cswatch.in/player/76561199317671038" target="_blank">CS2</a>
-                            <a href="#" target="_blank">Button 2</a>
-                            <a href="#" target="_blank">Button 3</a>
+                            <a href="https://cswatch.in/player/76561199317671038" target="_blank" rel="noopener noreferrer">CS2</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">Button 2</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">Button 3</a>
                         </div>
                     </div>
                     <div class="about-image">
@@ -76,6 +77,7 @@
                     <li>
                         <img src="image/CSS3_logo_and_wordmark.svg.png" alt="css">
                         <p>CSS</p>
+                    </li>
                     <li>
                         <img src="image/Unofficial_JavaScript_logo_2.svg.png" alt="javascript">
                         <p>Javascript</p>
@@ -95,18 +97,18 @@
             <article id="certificate" class="revealable">
                 <h2>Certificate</h2>
                 <div class="slider-container">
-                    <div class="slider">
+                    <div class="slider" aria-live="polite">
                         <div class="slide">
-                            <img src="image/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg" alt="sertifikat">
+                            <img src="image/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg" alt="sertifikat" loading="lazy">
                         </div>
                         <div class="slide">
-                            <img src="image/sertifikat_course_256_3755033_250624172216_page-0001.jpg" alt="sertifikat">
+                            <img src="image/sertifikat_course_256_3755033_250624172216_page-0001.jpg" alt="sertifikat" loading="lazy">
                         </div>
                         <div class="slide">
-                            <img src="image/sertifikat_course_615_3755033_241224160035_page-0001.jpg" alt="sertifikat">
+                            <img src="image/sertifikat_course_615_3755033_241224160035_page-0001.jpg" alt="sertifikat" loading="lazy">
                         </div>
                         <div class="slide">
-                            <img src="image/sertifikat_course_315_3755033_230624231439_page-0001.jpg" alt="sertifikat">
+                            <img src="image/sertifikat_course_315_3755033_230624231439_page-0001.jpg" alt="sertifikat" loading="lazy">
                         </div>
                     </div>
                     <div class="project-descriptions">
@@ -131,9 +133,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="slider-buttons">
-                    <button id="prev">Previous</button>
-                    <button id="next">Next</button>
+                <div class="slider-buttons" role="group" aria-label="Certificate slider controls">
+                    <button id="prev" aria-label="Previous certificate">Previous</button>
+                    <button id="next" aria-label="Next certificate">Next</button>
                 </div>
             </article>
 

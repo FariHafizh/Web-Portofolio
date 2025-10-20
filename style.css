@@ -373,3 +373,12 @@ footer {
         padding: 1.5rem;
     }
 }
+
+/* Mobile adjustments for certificate images */
+@media (max-width: 600px) {
+    .slide img {
+        max-width: 80%;
+        max-height: 220px;
+        margin-top: 1rem;
+    }
+}
