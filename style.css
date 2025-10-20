@@ -117,7 +117,7 @@ main {
     position: absolute;
     bottom: 1rem;
     left: 0;
-    right: 0;
+    right: -120px;
     height: 400px;
     background: linear-gradient(to top, var(--primary-color), transparent);
     pointer-events: none;
