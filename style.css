@@ -166,6 +166,42 @@ article[id] {
     scroll-margin-top: 5rem; /* Adjust this value based on header height */
 }
 
+/* Experience section */
+.experience-list {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.experience-item {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.03);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    flex: 1 1 300px;
+    min-height: 120px;
+}
+.experience-item h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--accent-color);
+}
+.experience-meta {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.5rem;
+}
+.experience-link {
+    display: inline-block;
+    background: #FF0000; /* YouTube red */
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.experience-link:hover {
+    filter: brightness(0.95);
+}
+
 /* Projects Slider */
 .slider-container {
     position: relative;
