@@ -19,9 +19,9 @@
         <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#software-info">Tech</a></li>
+                <li><a href="#software-info-panel">Tech</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#certificate">Certificate</a></li>
+                <li><a href="#certificate-panel">Certificate</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -51,7 +51,7 @@
                     <h2>Experience</h2>
                     <div class="experience-list">
                         <div class="experience-item">
-                            <h3>Web Developer — Kominfo (Internship)</h3>
+                            <h3>Web Developer — Komdigi (Internship)</h3>
                             <div class="experience-meta">Sep 2025 — Present · Jakarta, Indonesia · On-site</div>
                             <p>Worked on web development with focus on front-end implementation. Skills: Web Development, Front-End Development, and additional related skills.</p>
                         </div>
@@ -83,101 +83,124 @@
                     </div>
                 </article>
 
-                <article id="software-info" class="revealable">
-                <h2>My Tech Stack</h2>
+            <!-- software-info and certificate moved into combined-content below -->
 
-                <ol>
-                    <li>
-                        <img src="image/figma.png" alt="figma">
-                        <p>Figma</p>
-                    </li>
-                    <li>
-                        <img src="image/ps.png" alt="photoshop">
-                        <p>Adobe Photoshop</p>
-                    </li>
-                    <li>
-                        <img src="image/ae.png" alt="after effect">
-                        <p>Adobe After Effect</p>
-                    </li>
-                    <li>
-                        <img src="image/alightmotion.png" alt="alight motion">
-                        <p>Alight Motion</p>
-                    </li>
-                    <li>
-                        <img src="image/PHP-logo.svg.png" alt="php">
-                        <p>PHP</p>
-                    </li>
-                    <li>
-                        <img src="image/HTML5_logo_and_wordmark.svg.png" alt="html">
-                        <p>HTML</p>
-                    </li>
-                    <li>
-                        <img src="image/CSS3_logo_and_wordmark.svg.png" alt="css">
-                        <p>CSS</p>
-                    </li>
-                    <li>
-                        <img src="image/Unofficial_JavaScript_logo_2.svg.png" alt="javascript">
-                        <p>Javascript</p>
-                    </li>
-                    <li>
-                        <img src="image/React_Logo_SVG.svg.png" alt="react">
-                        <p>React</p>
-                    </li>
-                    <li>
-                        <img src="image/github_logo_icon_229278.png" alt="github">
-                        <p>GitHub</p>
-                    </li>
-                </ol>
-            </article>
+            <!-- Combined content area: Projects / Tech Stack / Certificates -->
+            <article id="combined-content" class="revealable">
+                <h2>Portfolio</h2>
+                <div class="combined-controls" role="tablist" aria-label="Portfolio sections">
+                    <button class="combined-btn active" data-target="projects" role="tab" aria-selected="true">Projects</button>
+                    <!-- targets point to the internal panels moved into the combined section -->
+                    <button class="combined-btn" data-target="software-info-panel" role="tab" aria-selected="false">Tech Stack</button>
+                    <button class="combined-btn" data-target="certificate-panel" role="tab" aria-selected="false">Certificates</button>
+                </div>
 
-
-            <article id="certificate" class="revealable">
-                <h2>Certificate</h2>
-                <div class="slider-container">
-                    <div class="slider" aria-live="polite">
-                        <div class="slide">
-                            <img src="image/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
-                        </div>
-                        <div class="slide">
-                            <img src="image/sertifikat_course_256_3755033_250624172216_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
-                        </div>
-                        <div class="slide">
-                            <img src="image/sertifikat_course_615_3755033_241224160035_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
-                        </div>
-                        <div class="slide">
-                            <img src="image/sertifikat_course_315_3755033_230624231439_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
-                        </div>
+                <div class="combined-panel">
+                    <div id="projects" class="panel active" role="tabpanel">
+                        <h3>Projects</h3>
+                        <p>Berisi ringkasan project yang pernah saya kerjakan. Contoh: personal website, web apps, dsb.</p>
+                        <ul class="project-list">
+                            <li><strong>Personal Portfolio</strong> — Website ini (HTML, CSS, JS)</li>
+                            <li><strong>Project A</strong> — Deskripsi singkat project A.</li>
+                        </ul>
                     </div>
-                    <div class="project-descriptions">
-                        <div class="description active">
-                            <h3>Belajar Dasar Pemrograman Web</h3>
-                            <p>Learn the basics of web programming, including HTML, CSS, and JavaScript.</p>
+                    
+                    <!-- Tech stack panel (moved from original location) -->
+                    <div id="software-info-panel" class="panel" role="tabpanel" hidden>
+                        <h3>My Tech Stack</h3>
+
+                        <ol>
+                            <li>
+                                <img src="image/figma.png" alt="figma">
+                                <p>Figma</p>
+                            </li>
+                            <li>
+                                <img src="image/ps.png" alt="photoshop">
+                                <p>Adobe Photoshop</p>
+                            </li>
+                            <li>
+                                <img src="image/ae.png" alt="after effect">
+                                <p>Adobe After Effect</p>
+                            </li>
+                            <li>
+                                <img src="image/alightmotion.png" alt="alight motion">
+                                <p>Alight Motion</p>
+                            </li>
+                            <li>
+                                <img src="image/PHP-logo.svg.png" alt="php">
+                                <p>PHP</p>
+                            </li>
+                            <li>
+                                <img src="image/HTML5_logo_and_wordmark.svg.png" alt="html">
+                                <p>HTML</p>
+                            </li>
+                            <li>
+                                <img src="image/CSS3_logo_and_wordmark.svg.png" alt="css">
+                                <p>CSS</p>
+                            </li>
+                            <li>
+                                <img src="image/Unofficial_JavaScript_logo_2.svg.png" alt="javascript">
+                                <p>Javascript</p>
+                            </li>
+                            <li>
+                                <img src="image/React_Logo_SVG.svg.png" alt="react">
+                                <p>React</p>
+                            </li>
+                            <li>
+                                <img src="image/github_logo_icon_229278.png" alt="github">
+                                <p>GitHub</p>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- Certificate panel (moved from original location) -->
+                    <div id="certificate-panel" class="panel" role="tabpanel" hidden>
+                        <h3>Certificate</h3>
+                        <div class="slider-container">
+                            <div class="slider" aria-live="polite">
+                                <div class="slide">
+                                    <img src="image/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
+                                </div>
+                                <div class="slide">
+                                    <img src="image/sertifikat_course_256_3755033_250624172216_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
+                                </div>
+                                <div class="slide">
+                                    <img src="image/sertifikat_course_615_3755033_241224160035_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
+                                </div>
+                                <div class="slide">
+                                    <img src="image/sertifikat_course_315_3755033_230624231439_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
+                                </div>
+                            </div>
+                            <div class="project-descriptions">
+                                <div class="description active">
+                                    <h3>Belajar Dasar Pemrograman Web</h3>
+                                    <p>Learn the basics of web programming, including HTML, CSS, and JavaScript.</p>
+                                </div>
+                                <div class="description">
+                                    <h3>Belajar Dasar Pemrograman Javascript</h3>
+                                    <p>A course introducing the basics of JavaScript programming, covering fundamental concepts,
+                                        syntax, and practical applications for web development.</p>
+                                </div>
+                                <div class="description">
+                                    <h3>Belajar Dasar Data Science</h3>
+                                    <p>A course introducing the basics of data science, including data analysis, visualization,
+                                        and machine learning concepts using popular tools and libraries.</p>
+                                </div>
+                                <div class="description">
+                                    <h3>Belajar Membuat Front-End Web untuk Pemula</h3>
+                                    <p>A course focused on the fundamentals of front-end web development, covering HTML, CSS, and
+                                        JavaScript basics to help beginners create their first web pages.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="description">
-                            <h3>Belajar Dasar Pemrograman Javascript</h3>
-                            <p>A course introducing the basics of JavaScript programming, covering fundamental concepts,
-                                syntax, and practical applications for web development.</p>
+                        <div class="slider-buttons" role="group" aria-label="Certificate slider controls">
+                            <button id="prev" aria-label="Previous certificate">Previous</button>
+                            <button id="next" aria-label="Next certificate">Next</button>
                         </div>
-                        <div class="description">
-                            <h3>Belajar Dasar Data Science</h3>
-                            <p>A course introducing the basics of data science, including data analysis, visualization,
-                                and machine learning concepts using popular tools and libraries.</p>
-                        </div>
-                        <div class="description">
-                            <h3>Belajar Membuat Front-End Web untuk Pemula</h3>
-                            <p>A course focused on the fundamentals of front-end web development, covering HTML, CSS, and
-                                JavaScript basics to help beginners create their first web pages.</p>
-                        </div>
+                        <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Certificate slide dots"></div>
+                        <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
                     </div>
                 </div>
-                <div class="slider-buttons" role="group" aria-label="Certificate slider controls">
-                    <button id="prev" aria-label="Previous certificate">Previous</button>
-                    <button id="next" aria-label="Next certificate">Next</button>
-                </div>
-                <!-- Dots indicators will be injected here by JS -->
-                <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Certificate slide dots"></div>
-                <!-- Screen reader announcer for slide changes -->
-                <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
             </article>
 
             <article id="contact" class="revealable">

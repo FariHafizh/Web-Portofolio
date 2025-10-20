@@ -229,7 +229,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Navigation active link highlighting
-    const sections = document.querySelectorAll('article[id]');
+    // Observe main article sections plus the moved panels so nav link highlighting works
+    const sections = document.querySelectorAll('article[id], #software-info-panel, #certificate-panel');
     const navLinks = document.querySelectorAll('nav a');
 
     const navObserver = new IntersectionObserver((entries) => {
@@ -261,6 +262,67 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Combined content tab switching (Projects / Tech / Certificates)
+    const combinedButtons = document.querySelectorAll('.combined-btn');
+    const panels = document.querySelectorAll('.combined-panel .panel');
+
+    function switchCombined(targetId) {
+        // Toggle internal panels inside combined-panel only
+        panels.forEach(p => {
+            const isTarget = p.id === targetId;
+            p.classList.toggle('active', isTarget);
+            if (isTarget) p.removeAttribute('hidden'); else p.setAttribute('hidden', '');
+        });
+        combinedButtons.forEach(btn => {
+            const isActive = btn.getAttribute('data-target') === targetId;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        // ensure the combined content is visible in viewport
+        const combined = document.getElementById('combined-content');
+        if (combined) combined.scrollIntoView({ behavior: 'smooth' });
+
+        // If certificate panel was shown, the slider may have been initialized while hidden.
+        // Recompute slides and reset transform/dots so interactions work properly.
+        if (targetId === 'certificate-panel') {
+            try {
+                // recompute slides (in case DOM changed) and reset transform
+                if (typeof slider !== 'undefined' && slider) {
+                    slides = Array.from(slider.querySelectorAll('.slide'));
+                    // clamp currentIndex
+                    const lastIndex = slides.length - 1;
+                    if (currentIndex > lastIndex) currentIndex = lastIndex;
+                    if (currentIndex < 0) currentIndex = 0;
+                    // remove transition while snapping to correct slide
+                    slider.style.transition = 'none';
+                    slider.style.transform = `translateX(${ -currentIndex * 100 }%)`;
+                    // force reflow then re-enable transitions
+                    // eslint-disable-next-line no-unused-expressions
+                    slider.offsetHeight;
+                    slider.style.transition = '';
+                    updateActiveDot(currentIndex);
+                }
+            } catch (e) {
+                // silent fail; slider may not exist in some contexts
+                // console.warn('Slider adjustment failed', e);
+            }
+        }
+    }
+
+    combinedButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const target = btn.getAttribute('data-target');
+            if (target) switchCombined(target);
+        });
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const target = btn.getAttribute('data-target');
+                if (target) switchCombined(target);
             }
         });
     });
