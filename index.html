@@ -99,16 +99,16 @@
                 <div class="slider-container">
                     <div class="slider" aria-live="polite">
                         <div class="slide">
-                            <img src="image/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg" alt="sertifikat" loading="lazy">
+                            <img src="image/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
                         </div>
                         <div class="slide">
-                            <img src="image/sertifikat_course_256_3755033_250624172216_page-0001.jpg" alt="sertifikat" loading="lazy">
+                            <img src="image/sertifikat_course_256_3755033_250624172216_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
                         </div>
                         <div class="slide">
-                            <img src="image/sertifikat_course_615_3755033_241224160035_page-0001.jpg" alt="sertifikat" loading="lazy">
+                            <img src="image/sertifikat_course_615_3755033_241224160035_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
                         </div>
                         <div class="slide">
-                            <img src="image/sertifikat_course_315_3755033_230624231439_page-0001.jpg" alt="sertifikat" loading="lazy">
+                            <img src="image/sertifikat_course_315_3755033_230624231439_page-0001.jpg" alt="sertifikat" loading="lazy" decoding="async" sizes="(max-width:600px) 80vw, 50vw">
                         </div>
                     </div>
                     <div class="project-descriptions">
@@ -137,6 +137,10 @@
                     <button id="prev" aria-label="Previous certificate">Previous</button>
                     <button id="next" aria-label="Next certificate">Next</button>
                 </div>
+                <!-- Dots indicators will be injected here by JS -->
+                <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Certificate slide dots"></div>
+                <!-- Screen reader announcer for slide changes -->
+                <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
             </article>
 
             <article id="contact" class="revealable">

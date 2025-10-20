@@ -58,6 +58,35 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nextBtn) nextBtn.addEventListener('click', () => moveTo(currentIndex + 1));
     if (prevBtn) prevBtn.addEventListener('click', () => moveTo(currentIndex - 1));
 
+    // Dots indicators
+    const dotsContainer = document.getElementById('slider-dots');
+    let dots = [];
+    if (dotsContainer) {
+        originalSlides.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            btn.setAttribute('role', 'tab');
+            btn.addEventListener('click', () => moveTo(i + 1)); // +1 because of prepended clone
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    moveTo(i + 1);
+                }
+            });
+            dotsContainer.appendChild(btn);
+            dots.push(btn);
+        });
+    }
+
+    function updateActiveDot(index) {
+        if (!dots || dots.length === 0) return;
+        // map slides-array index to originalSlides index
+        const originalsCount = originalSlides.length;
+        let mapped = (index - 1) % originalsCount;
+        if (mapped < 0) mapped += originalsCount;
+        dots.forEach((d, i) => d.classList.toggle('active', i === mapped));
+    }
+
     // Autoplay
     const AUTO_PLAY_INTERVAL = 4000; // ms
     let autoPlayTimer = setInterval(() => moveTo(currentIndex + 1), AUTO_PLAY_INTERVAL);
@@ -70,6 +99,14 @@ document.addEventListener('DOMContentLoaded', function () {
         sliderContainer.addEventListener('mouseleave', () => {
             if (!autoPlayTimer) autoPlayTimer = setInterval(() => moveTo(currentIndex + 1), AUTO_PLAY_INTERVAL);
         });
+    }
+
+    // Pause autoplay during user interaction (drag/touch/keyboard) and resume after
+    function pauseAutoplay() {
+        if (autoPlayTimer) { clearInterval(autoPlayTimer); autoPlayTimer = null; }
+    }
+    function resumeAutoplay() {
+        if (!autoPlayTimer) autoPlayTimer = setInterval(() => moveTo(currentIndex + 1), AUTO_PLAY_INTERVAL);
     }
 
     // Keyboard navigation (left/right)
@@ -108,7 +145,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // allow next transition
         isTransitioning = false;
+        // update dots active state
+        updateActiveDot(currentIndex);
+        // announce slide to screen reader
+        const announcer = document.getElementById('sr-announcer');
+        if (announcer) {
+            const originalsCount = originalSlides.length;
+            let mapped = (currentIndex - 1) % originalsCount;
+            if (mapped < 0) mapped += originalsCount;
+            const desc = descriptions[mapped];
+            if (desc) announcer.textContent = desc.querySelector('h3') ? desc.querySelector('h3').textContent : `Slide ${mapped + 1}`;
+        }
     });
+
+    // Swipe / drag support (touch + mouse)
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    function onDragStart(x) {
+        pauseAutoplay();
+        isDragging = true;
+        startX = x;
+        slider.style.transition = 'none';
+    }
+
+    function onDragMove(x) {
+        if (!isDragging) return;
+        currentX = x;
+        const dx = currentX - startX;
+        // translate based on drag distance proportionally (px to %)
+        const width = slider.offsetWidth || slider.clientWidth || 1;
+        const deltaPercent = (dx / width) * 100;
+        slider.style.transform = `translateX(${ -currentIndex * 100 + deltaPercent }%)`;
+    }
+
+    function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        const dx = currentX - startX;
+        const width = slider.offsetWidth || slider.clientWidth || 1;
+        const threshold = Math.max(50, width * 0.15); // 15% or 50px
+        // if swipe far enough, move to next/prev
+        if (dx < -threshold) {
+            moveTo(currentIndex + 1);
+        } else if (dx > threshold) {
+            moveTo(currentIndex - 1);
+        } else {
+            // return to current
+            slider.style.transition = 'transform 0.3s ease-in-out';
+            slider.style.transform = `translateX(${ -currentIndex * 100 }%)`;
+            // allow transitions to complete
+            setTimeout(() => { isTransitioning = false; }, 300);
+        }
+        resumeAutoplay();
+    }
+
+    // Touch events
+    slider.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), {passive: true});
+    slider.addEventListener('touchmove', (e) => onDragMove(e.touches[0].clientX), {passive: true});
+    slider.addEventListener('touchend', () => onDragEnd());
+
+    // Mouse events for desktop drag
+    slider.addEventListener('mousedown', (e) => { e.preventDefault(); onDragStart(e.clientX); });
+    window.addEventListener('mousemove', (e) => onDragMove(e.clientX));
+    window.addEventListener('mouseup', () => onDragEnd());
 
     // Scroll reveal animation
     const revealables = document.querySelectorAll('.revealable');

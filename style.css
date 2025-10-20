@@ -257,6 +257,43 @@ article[id] {
     border-color: rgba(255,255,255,0.08);
 }
 
+/* Dots indicators */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+.slider-dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    cursor: pointer;
+}
+.slider-dots button.active {
+    background: var(--secondary-color);
+    box-shadow: 0 0 6px rgba(45, 226, 230, 0.4);
+}
+
+/* Visible focus styles for accessibility */
+a:focus, button:focus {
+    outline: 3px solid rgba(45, 226, 230, 0.25);
+    outline-offset: 2px;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Improve swipe/drag UX: make slider touch-friendly */
+.slider { touch-action: pan-y; }
+
 .home-buttons {
     margin-top: 1.5rem;
     display: flex;
