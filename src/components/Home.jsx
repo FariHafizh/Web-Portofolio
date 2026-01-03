@@ -1,3 +1,5 @@
+import { assetUrl } from '../assetUrl';
+
 export default function Home() {
 	return (
 		<article id="home" className="revealable">
@@ -28,7 +30,7 @@ export default function Home() {
 					</div>
 				</div>
 				<div className="about-image">
-					<img src="/assets/profile_pic/midoriya.png" alt="Profile Picture" />
+					<img src={assetUrl('assets/profile_pic/midoriya.png')} alt="Profile Picture" />
 				</div>
 			</div>
 		</article>

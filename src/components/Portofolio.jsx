@@ -1,3 +1,5 @@
+import { assetUrl } from '../assetUrl';
+
 export default function Portofolio() {
 	return (
 		<article id="combined-content" className="revealable">
@@ -36,43 +38,43 @@ export default function Portofolio() {
 
 					<ol>
 						<li>
-							<img src="/assets/stack/figma.png" alt="figma" />
+							<img src={assetUrl('assets/stack/figma.png')} alt="figma" />
 							<p>Figma</p>
 						</li>
 						<li>
-							<img src="/assets/stack/ps.png" alt="photoshop" />
+							<img src={assetUrl('assets/stack/ps.png')} alt="photoshop" />
 							<p>Adobe Photoshop</p>
 						</li>
 						<li>
-							<img src="/assets/stack/ae.png" alt="after effect" />
+							<img src={assetUrl('assets/stack/ae.png')} alt="after effect" />
 							<p>Adobe After Effect</p>
 						</li>
 						<li>
-							<img src="/assets/stack/alightmotion.png" alt="alight motion" />
+							<img src={assetUrl('assets/stack/alightmotion.png')} alt="alight motion" />
 							<p>Alight Motion</p>
 						</li>
 						<li>
-							<img src="/assets/stack/PHP-logo.svg.png" alt="php" />
+							<img src={assetUrl('assets/stack/PHP-logo.svg.png')} alt="php" />
 							<p>PHP</p>
 						</li>
 						<li>
-							<img src="/assets/stack/HTML5_logo_and_wordmark.svg.png" alt="html" />
+							<img src={assetUrl('assets/stack/HTML5_logo_and_wordmark.svg.png')} alt="html" />
 							<p>HTML</p>
 						</li>
 						<li>
-							<img src="/assets/stack/CSS3_logo_and_wordmark.svg.png" alt="css" />
+							<img src={assetUrl('assets/stack/CSS3_logo_and_wordmark.svg.png')} alt="css" />
 							<p>CSS</p>
 						</li>
 						<li>
-							<img src="/assets/stack/Unofficial_JavaScript_logo_2.svg.png" alt="javascript" />
+							<img src={assetUrl('assets/stack/Unofficial_JavaScript_logo_2.svg.png')} alt="javascript" />
 							<p>Javascript</p>
 						</li>
 						<li>
-							<img src="/assets/stack/React_Logo_SVG.svg.png" alt="react" />
+							<img src={assetUrl('assets/stack/React_Logo_SVG.svg.png')} alt="react" />
 							<p>React</p>
 						</li>
 						<li>
-							<img src="/assets/stack/github_logo_icon_229278.png" alt="github" />
+							<img src={assetUrl('assets/stack/github_logo_icon_229278.png')} alt="github" />
 							<p>GitHub</p>
 						</li>
 					</ol>
@@ -84,7 +86,7 @@ export default function Portofolio() {
 						<div className="slider" aria-live="polite">
 							<div className="slide">
 								<img
-									src="/assets/certificate/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg"
+									src={assetUrl('assets/certificate/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg')}
 									alt="sertifikat"
 									loading="lazy"
 									decoding="async"
@@ -93,7 +95,7 @@ export default function Portofolio() {
 							</div>
 							<div className="slide">
 								<img
-									src="/assets/certificate/sertifikat_course_256_3755033_250624172216_page-0001.jpg"
+									src={assetUrl('assets/certificate/sertifikat_course_256_3755033_250624172216_page-0001.jpg')}
 									alt="sertifikat"
 									loading="lazy"
 									decoding="async"
@@ -102,7 +104,7 @@ export default function Portofolio() {
 							</div>
 							<div className="slide">
 								<img
-									src="/assets/certificate/sertifikat_course_615_3755033_241224160035_page-0001.jpg"
+									src={assetUrl('assets/certificate/sertifikat_course_615_3755033_241224160035_page-0001.jpg')}
 									alt="sertifikat"
 									loading="lazy"
 									decoding="async"
@@ -111,7 +113,7 @@ export default function Portofolio() {
 							</div>
 							<div className="slide">
 								<img
-									src="/assets/certificate/sertifikat_course_315_3755033_230624231439_page-0001.jpg"
+									src={assetUrl('assets/certificate/sertifikat_course_315_3755033_230624231439_page-0001.jpg')}
 									alt="sertifikat"
 									loading="lazy"
 									decoding="async"
