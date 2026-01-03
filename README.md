@@ -2,6 +2,8 @@
 
 Template website portofolio modern berbasis React + Vite.
 
+Live Demo: (https://web-portofolio-sage-omega.vercel.app/)
+
 ## Cara Menjalankan
 1. Buka terminal
 2. Ketik `npm install` untuk menginstall dependencies
