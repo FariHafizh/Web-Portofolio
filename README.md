@@ -7,7 +7,7 @@ Template website portofolio modern berbasis React + Vite.
 2. Ketik `npm install` untuk menginstall dependencies
 3. Ketik `npm run dev` untuk menjalankan di browser
 
-## Cara Mengubah Isi (Tanpa Ngoding Banyak)
+## Cara Mengubah Isi 
 - Ubah teks (judul, bio, label tombol, dll): `src/content.jsx`
 - Ubah data (experience, projects, tech stack, certificates, contact): `src/data.jsx`
 - Gambar ada di folder: `public/assets/`
@@ -16,7 +16,7 @@ Catatan: file `src/legacyDom.js` mengatur slider & tab (jangan ubah ID/class HTM
 
 Untuk panduan lebih detail, lihat `CUSTOMIZATION_GUIDE.md`.
 
-## Checklist Kustomisasi Cepat (Paling Umum)
+## Checklist Kustomisasi Cepat 
 - Ganti judul website: `src/content.jsx` → `content.site.title`
 - Ganti nama & bio: `src/content.jsx` → `content.home.*`
 - Ganti tombol di section Home: `src/data.jsx` → `data.homeButtons`
