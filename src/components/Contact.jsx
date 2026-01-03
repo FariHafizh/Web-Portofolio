@@ -1,26 +1,32 @@
+import { content } from '../content';
+import { data } from '../data';
+
 export default function Contact() {
 	return (
 		<article id="contact" className="revealable">
-			<h2>Contact</h2>
+			<h2>{content.sections.contact.title}</h2>
 			<ul>
 				<li>
-					<strong>Email:</strong> <a href="mailto:farihafizh741@gmail.com">farihafizh741@gmail.com</a>
+					<strong>{data.contactItems.email.label}:</strong>{' '}
+					<a href={`mailto:${data.contactItems.email.value}`}>{data.contactItems.email.value}</a>
 				</li>
-				<li>Instagram: @farihfzh</li>
 				<li>
-					LinkedIn:{' '}
+					{data.contactItems.instagram.label}: {data.contactItems.instagram.value}
+				</li>
+				<li>
+					{data.contactItems.linkedin.label}:{' '}
 					<a
-						href="https://www.linkedin.com/in/fari-hafizh-nugroho-848552248/"
+						href={data.contactItems.linkedin.href}
 						target="_blank"
 						rel="noreferrer"
 					>
-						fari-hafizh-nugroho
+						{data.contactItems.linkedin.labelValue}
 					</a>
 				</li>
 				<li>
-					GitHub:{' '}
-					<a href="https://github.com/FariHafizh" target="_blank" rel="noreferrer">
-						FariHafizh
+					{data.contactItems.github.label}:{' '}
+					<a href={data.contactItems.github.href} target="_blank" rel="noreferrer">
+						{data.contactItems.github.labelValue}
 					</a>
 				</li>
 			</ul>

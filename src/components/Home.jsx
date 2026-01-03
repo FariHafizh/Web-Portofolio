@@ -1,4 +1,6 @@
 import { assetUrl } from '../assetUrl';
+import { content } from '../content';
+import { data } from '../data';
 
 export default function Home() {
 	return (
@@ -6,31 +8,29 @@ export default function Home() {
 			<div className="about-container">
 				<div className="about-text">
 					<h2>
-						Fari Hafizh
+						{content.home.nameLines[0]}
 						<br />
-						Nugroho
+						{content.home.nameLines[1]}
 					</h2>
-					<p>
-						Hello! I&apos;m a Computer Science student at IPB University with a strong passion
-						for web development and UI/UX design. I am always eager to learn new technologies
-						and collaborate on challenging and innovative projects.
-					</p>
+					<p>{content.home.bio}</p>
 					<div className="home-buttons">
-						<a
-							href="https://cswatch.in/player/76561199317671038"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							CS2
+						{data.homeButtons.map((btn) => (
+							<a
+								key={btn.label}
+								href={btn.href}
+								target={btn.external ? '_blank' : undefined}
+								rel={btn.external ? 'noopener noreferrer' : undefined}
+							>
+							{btn.label}
 						</a>
-						<a href="#combined-content">Portfolio</a>
-						<a href="#" target="_blank" rel="noopener noreferrer">
-							Button 3
-						</a>
+						))}
 					</div>
 				</div>
 				<div className="about-image">
-					<img src={assetUrl('assets/profile_pic/midoriya.png')} alt="Profile Picture" />
+					<img
+						src={assetUrl('assets/profile_pic/midoriya.png')}
+						alt={content.home.profileImageAlt}
+					/>
 				</div>
 			</div>
 		</article>

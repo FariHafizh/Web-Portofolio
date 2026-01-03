@@ -1,7 +1,9 @@
+import { content } from '../content';
+
 export default function Footer() {
 	return (
 		<footer>
-			<p>&copy; 2024 Fari Hafizh Nugroho. All rights reserved.</p>
+			<p>{content.footer.copyright}</p>
 		</footer>
 	);
 }
