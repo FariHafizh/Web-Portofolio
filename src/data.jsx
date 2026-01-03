@@ -22,10 +22,10 @@ export const data = {
 
 	experiences: [
 		{
-			role: 'Web Developer — Komdigi (Internship)',
-			meta: 'Sep 2025 — Present · Jakarta, Indonesia · On-site',
+			role: 'IT Analyst — Komdigi (Internship)',
+			meta: 'Sep 2025 — November 2025 · Jakarta, Indonesia · On-site',
 			description:
-				'Worked on web development with focus on front-end implementation. Skills: Web Development, Front-End Development, and additional related skills.',
+				'Analyzed and defined technical requirements for the Geopos web platform, bridging the gap between stakeholder needs and front-end implementation strategies.',
 		},
 		{
 			role: 'Staff of Creative Division — Agriinformatics 2024',
@@ -35,13 +35,13 @@ export const data = {
 		},
 		{
 			role: 'Staff of Creative Division — Pekan Ilkmoerz 60',
-			meta: 'Jul 2024 — Oct 2024 · Teamwork',
+			meta: 'Jul 2024 — Oct 2024 · Hybrid · Seasonal',
 			description:
 				'Contributed to creative assets and event collateral; worked closely with the events team on design deliverables.',
 		},
 		{
 			role: 'Staff of Creative — IT TODAY IPB',
-			meta: 'Jan 2023 — Oct 2023 · Seasonal · Hybrid',
+			meta: 'Jan 2023 — Oct 2023 · Hybrid · Seasonal',
 			description:
 				'Participated in project management and graphic design tasks for IT TODAY 2023. Gained experience coordinating with cross-functional teams.',
 		},
