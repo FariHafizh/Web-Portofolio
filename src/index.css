@@ -550,6 +550,76 @@ footer {
   }
 }
 
+/* Extra-small screens: prevent elements from overlapping */
+@media (max-width: 600px) {
+  /* Header/nav: allow wrapping so links don't overflow */
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 0;
+  }
+
+  /* Home: reduce heading size and remove negative image offset */
+  .about-text h2 {
+    font-size: 2.4rem;
+    padding-bottom: 1rem;
+  }
+
+  .about-text p {
+    margin-top: 1rem;
+  }
+
+  .about-image::after {
+    display: none;
+  }
+
+  .about-image img {
+    transform: none;
+    width: min(360px, 100%);
+  }
+
+  /* Home buttons: wrap and avoid squeezing */
+  .home-buttons {
+    flex-wrap: wrap;
+  }
+
+  .home-buttons a {
+    flex: 1 1 140px;
+    text-align: center;
+    padding: 10px 14px;
+  }
+
+  /* Certificates descriptions: avoid absolute stacking on small screens */
+  .project-descriptions {
+    position: static;
+    min-height: 0;
+  }
+
+  .project-descriptions .description {
+    position: static;
+    display: none;
+    opacity: 1;
+    transition: none;
+  }
+
+  .project-descriptions .description.active {
+    display: block;
+  }
+}
+
 /* Mobile adjustments for certificate images */
 @media (max-width: 600px) {
   .slide img {
