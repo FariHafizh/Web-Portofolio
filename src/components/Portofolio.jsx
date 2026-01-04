@@ -3,6 +3,8 @@ import { content } from '../content';
 import { Certificates, Project, TechStack } from '../data';
 
 export default function Portofolio() {
+	// Penting: ID/class di section ini dipakai oleh `initLegacyPortfolioDom()`.
+	// Jangan ubah tanpa update `src/legacyDom.js`.
 	return (
 		<article id="combined-content" className="revealable">
 			<h2>{content.sections.portfolioTitle}</h2>

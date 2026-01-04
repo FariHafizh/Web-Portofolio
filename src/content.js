@@ -1,5 +1,11 @@
-// Gunakan file ini untuk teks statis (Navbar, Home, Portfolio labels, Footer, dll).
-// Format utama: export const object.
+/**
+ * PUSAT TEKS / COPY WEBSITE.
+ *
+ * Catatan:
+ * - Simpan hal yang sifatnya "teks" di sini (judul, label, intro).
+ * - Data list (projects, experience, tech stack, dll) ada di `src/data.js`.
+ * - ID pada `homeData` harus unik.
+ */
 
 export const content = {
   site: {

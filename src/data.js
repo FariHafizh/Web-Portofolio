@@ -1,6 +1,10 @@
-// Gunakan file ini untuk data list (Projects, Certificates, Experience, Tech Stack, Contact, dll).
-// Format utama: export const array of objects.
-// Catatan: pastikan setiap object punya 'id' unik.
+/**
+ * PUSAT DATA LIST WEBSITE.
+ *
+ * Format:
+ * - Setiap export adalah array of objects.
+ * - Setiap object WAJIB punya `id` unik (dipakai React sebagai key).
+ */
 
 export const HomeButtons = [
   { id: 1, label: 'CS2', href: 'https://cswatch.in/player/76561199317671038', external: true },
@@ -117,7 +121,13 @@ export const Certificates = [
 ];
 
 export const Contact = [
-  { id: 1, type: 'email', label: 'Email', value: 'farihafizh741@gmail.com', href: 'mailto:farihafizh741@gmail.com' },
+  {
+    id: 1,
+    type: 'email',
+    label: 'Email',
+    value: 'farihafizh741@gmail.com',
+    href: 'mailto:farihafizh741@gmail.com',
+  },
   { id: 2, type: 'instagram', label: 'Instagram', value: '@farihfzh', href: '' },
   {
     id: 3,

@@ -11,6 +11,8 @@ import { initLegacyPortfolioDom } from './legacyDom';
 
 export default function App() {
   useEffect(() => {
+    // Inisialisasi tab + slider yang masih berbasis DOM (legacy).
+    // Wajib dipanggil setelah komponen ter-render.
     initLegacyPortfolioDom();
   }, []);
 

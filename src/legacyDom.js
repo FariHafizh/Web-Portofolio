@@ -1,5 +1,12 @@
 export function initLegacyPortfolioDom() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
+  // File ini sengaja menggunakan DOM API (bukan React state) untuk:
+  // - tab switching di section Portfolio
+  // - certificate slider (clone/loop/autoplay/swipe)
+  // Penting: struktur HTML/ID/class tertentu harus tetap ada.
+  // Lihat `src/components/Portofolio.jsx` untuk kontraknya.
+
   if (window.__legacyPortfolioDomInitialized) return;
   window.__legacyPortfolioDomInitialized = true;
 

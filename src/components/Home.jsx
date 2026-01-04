@@ -3,7 +3,9 @@ import { content } from '../content';
 import { HomeButtons } from '../data';
 
 export default function Home() {
-	const name = content.homeData.find((item) => 'firstName' in item && 'lastName' in item);
+	const name = content.homeData.find(
+		(item) => 'firstName' in item && 'lastName' in item
+	);
 	const bio = content.homeData.find((item) => item.id === 4 && 'text' in item);
 	const altObj = content.homeData.find((item) => 'profileImageAlt' in item);
 
@@ -20,7 +22,7 @@ export default function Home() {
 					<div className="home-buttons">
 						{HomeButtons.map((btn) => (
 							<a
-								key={btn.label}
+								key={btn.id}
 								href={btn.href}
 								target={btn.external ? '_blank' : undefined}
 								rel={btn.external ? 'noopener noreferrer' : undefined}

@@ -14,16 +14,22 @@ export default function Contact() {
 							</li>
 						);
 					}
+
 					if (item.href) {
 						return (
 							<li key={item.id}>
 								{item.label}:{' '}
-								<a href={item.href} target="_blank" rel="noreferrer">
+								<a
+									href={item.href}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									{item.value}
 								</a>
 							</li>
 						);
 					}
+
 					return (
 						<li key={item.id}>
 							{item.label}: {item.value}
