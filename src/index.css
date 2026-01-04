@@ -412,12 +412,12 @@ a:focus-visible, button:focus-visible {
 /* Combined content (Projects / Tech / Certificates) */
 .combined-controls {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.9rem;
   justify-content: center;
   margin: 1.5rem auto 1rem;
   flex-wrap: wrap;
-  max-width: 760px;
-  padding: 10px;
+  max-width: 550px;
+  padding: 15px;
   background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.03);
@@ -488,7 +488,7 @@ a:focus-visible, button:focus-visible {
 /* Responsive: ensure buttons wrap and stay centered */
 @media (max-width: 640px) {
   .combined-controls { max-width: 100%; padding: 6px; }
-  .combined-btn { flex: 1 1 calc(50% - 12px); justify-content: center; padding: 10px 12px; }
+  .combined-btn { flex: 1 1 calc(50% - 0.9rem); justify-content: center; padding: 10px 12px; }
 }
 /* subtle icon motion on hover */
 .combined-btn:hover::before { transform: translateY(-2px) rotate(-6deg); }
