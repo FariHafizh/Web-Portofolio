@@ -10,8 +10,8 @@ Live Demo: (https://web-portofolio-sage-omega.vercel.app/)
 3. Ketik `npm run dev` untuk menjalankan di browser
 
 ## Cara Mengubah Isi 
-- Ubah teks (judul, bio, label tombol, dll): `src/content.jsx`
-- Ubah data (experience, projects, tech stack, certificates, contact): `src/data.jsx`
+- Ubah teks (judul, bio, label tombol, dll): `src/content.js`
+- Ubah data (experience, projects, tech stack, certificates, contact): `src/data.js`
 - Gambar ada di folder: `public/assets/`
 
 Catatan: file `src/legacyDom.js` mengatur slider & tab (jangan ubah ID/class HTML yang sudah ada).
@@ -19,14 +19,14 @@ Catatan: file `src/legacyDom.js` mengatur slider & tab (jangan ubah ID/class HTM
 Untuk panduan lebih detail, lihat `CUSTOMIZATION_GUIDE.md`.
 
 ## Checklist Kustomisasi Cepat 
-- Ganti judul website: `src/content.jsx` → `content.site.title`
-- Ganti nama & bio: `src/content.jsx` → `content.home.*`
-- Ganti tombol di section Home: `src/data.jsx` → `data.homeButtons`
-- Ganti pengalaman: `src/data.jsx` → `data.experiences`
-- Ganti project: `src/data.jsx` → `data.projects`
-- Ganti daftar skill/stack: `src/data.jsx` → `data.techStack`
-- Ganti certificates + deskripsi: `src/data.jsx` → `data.certificates`
-- Ganti kontak: `src/data.jsx` → `data.contactItems`
+- Ganti judul website: `src/content.js` → `content.site.title`
+- Ganti nama & bio (Home): `src/content.js` → `content.homeData`
+- Ganti tombol di section Home: `src/data.js` → `HomeButtons`
+- Ganti pengalaman: `src/data.js` → `Experience`
+- Ganti project: `src/data.js` → `Project`
+- Ganti daftar skill/stack: `src/data.js` → `TechStack`
+- Ganti certificates + deskripsi: `src/data.js` → `Certificates`
+- Ganti kontak: `src/data.js` → `Contact`
 - Ganti foto profil: ganti file di `public/assets/profile_pic/` (atau ubah path di komponen bila diperlukan)
 
 ## Deploy (Hosting)
@@ -54,6 +54,6 @@ Untuk panduan lebih detail, lihat `CUSTOMIZATION_GUIDE.md`.
 
 ## Struktur Folder
 - /src/components: Lokasi komponen edit
-- /src/content.jsx: Teks/label website
-- /src/data.jsx: Data/list (skills, pengalaman, dll)
+- /src/content.js: Teks/label website
+- /src/data.js: Data/list (skills, pengalaman, dll)
 - /public/assets: Lokasi gambar

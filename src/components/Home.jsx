@@ -1,20 +1,24 @@
 import { assetUrl } from '../assetUrl';
 import { content } from '../content';
-import { data } from '../data';
+import { HomeButtons } from '../data';
 
 export default function Home() {
+	const name = content.homeData.find((item) => 'firstName' in item && 'lastName' in item);
+	const bio = content.homeData.find((item) => item.id === 4 && 'text' in item);
+	const altObj = content.homeData.find((item) => 'profileImageAlt' in item);
+
 	return (
 		<article id="home" className="revealable">
 			<div className="about-container">
 				<div className="about-text">
 					<h2>
-						{content.home.nameLines[0]}
+						{name?.firstName ?? ''}
 						<br />
-						{content.home.nameLines[1]}
+						{name?.lastName ?? ''}
 					</h2>
-					<p>{content.home.bio}</p>
+					<p>{bio?.text ?? ''}</p>
 					<div className="home-buttons">
-						{data.homeButtons.map((btn) => (
+						{HomeButtons.map((btn) => (
 							<a
 								key={btn.label}
 								href={btn.href}
@@ -29,7 +33,7 @@ export default function Home() {
 				<div className="about-image">
 					<img
 						src={assetUrl('assets/profile_pic/midoriya.png')}
-						alt={content.home.profileImageAlt}
+						alt={altObj?.profileImageAlt ?? 'Profile Picture'}
 					/>
 				</div>
 			</div>

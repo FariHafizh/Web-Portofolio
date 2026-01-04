@@ -1,11 +1,11 @@
 import { assetUrl } from '../assetUrl';
 import { content } from '../content';
-import { data } from '../data';
+import { Certificates, Project, TechStack } from '../data';
 
 export default function Portofolio() {
 	return (
 		<article id="combined-content" className="revealable">
-			<h2>{content.sections.portfolio.title}</h2>
+			<h2>{content.sections.portfolioTitle}</h2>
 			<div className="combined-controls" role="tablist" aria-label="Portfolio sections">
 				<button className="combined-btn active" data-target="projects" role="tab" aria-selected="true">
 					{content.portfolio.tabs.projects}
@@ -20,23 +20,23 @@ export default function Portofolio() {
 
 			<div className="combined-panel">
 				<div id="projects" className="panel active" role="tabpanel">
-					<h3>{content.sections.portfolio.projectsTitle}</h3>
-					<p>{content.sections.portfolio.projectsIntro}</p>
+					<h3>{content.portfolio.panels.projectsTitle}</h3>
+					<p>{content.portfolio.panels.projectsIntro}</p>
 					<ul className="project-list">
-						{data.projects.map((project) => (
-							<li key={project.title}>
-								<strong>{project.title}</strong> — {project.detail}
+						{Project.map((project) => (
+							<li key={project.id}>
+								<strong>{project.Title}</strong> — {project.Description}
 							</li>
 						))}
 					</ul>
 				</div>
 
 				<div id="software-info-panel" className="panel" role="tabpanel" hidden>
-					<h3>{content.sections.portfolio.techStackTitle}</h3>
+					<h3>{content.portfolio.panels.techStackTitle}</h3>
 
 					<ol>
-						{data.techStack.map((tool) => (
-							<li key={tool.label}>
+						{TechStack.map((tool) => (
+							<li key={tool.id}>
 								<img src={assetUrl(tool.img)} alt={tool.alt} />
 								<p>{tool.label}</p>
 							</li>
@@ -45,11 +45,11 @@ export default function Portofolio() {
 				</div>
 
 				<div id="certificate-panel" className="panel" role="tabpanel" hidden>
-					<h3>{content.sections.portfolio.certificatesTitle}</h3>
+					<h3>{content.portfolio.panels.certificatesTitle}</h3>
 					<div className="slider-container">
 						<div className="slider" aria-live="polite">
-							{data.certificates.map((cert) => (
-								<div key={cert.img} className="slide">
+							{Certificates.map((cert) => (
+								<div key={cert.id} className="slide">
 									<img
 										src={assetUrl(cert.img)}
 										alt={cert.alt}
@@ -62,8 +62,8 @@ export default function Portofolio() {
 						</div>
 
 						<div className="project-descriptions">
-							{data.certificates.map((cert, idx) => (
-								<div key={cert.title} className={`description${idx === 0 ? ' active' : ''}`}>
+							{Certificates.map((cert, idx) => (
+								<div key={cert.id} className={`description${idx === 0 ? ' active' : ''}`}>
 									<h3>{cert.title}</h3>
 									<p>{cert.description}</p>
 								</div>

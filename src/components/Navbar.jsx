@@ -7,7 +7,7 @@ export default function Navbar() {
 			<nav role="navigation" aria-label="Main navigation">
 				<ul>
 					{content.nav.links.map((link) => (
-						<li key={link.href}>
+						<li key={link.id}>
 							<a href={link.href}>{link.label}</a>
 						</li>
 					))}
