@@ -471,13 +471,19 @@ a:focus-visible, button:focus-visible {
   border-color: var(--secondary-color);
   box-shadow: 0 14px 40px rgba(45,171,135,0.14), 0 0 12px rgba(45,226,230,0.08) inset;
   transform: translateY(-3px) scale(1.02);
+  animation: accentPulse 2.2s ease-in-out infinite;
 }
 
 /* Decorative icons */
 .combined-btn[data-target="projects"]::before { content: "🗂"; }
 .combined-btn[data-target="software-info-panel"]::before { content: "🛠"; }
 .combined-btn[data-target="certificate-panel"]::before { content: "🎓"; }
-.combined-btn::before { display: inline-block; font-size: 1.05rem; line-height: 1; }
+.combined-btn::before {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+}
 
 /* Responsive: ensure buttons wrap and stay centered */
 @media (max-width: 640px) {
@@ -486,7 +492,6 @@ a:focus-visible, button:focus-visible {
 }
 /* subtle icon motion on hover */
 .combined-btn:hover::before { transform: translateY(-2px) rotate(-6deg); }
-.combined-btn::before { transition: transform 220ms cubic-bezier(.2,.9,.2,1); }
 
 /* animated accent for active state */
 @keyframes accentPulse {
@@ -494,7 +499,6 @@ a:focus-visible, button:focus-visible {
   50% { box-shadow: 0 18px 44px rgba(45,171,135,0.12); }
   100% { box-shadow: 0 8px 18px rgba(45,171,135,0.06); }
 }
-.combined-btn.active { animation: accentPulse 2.2s ease-in-out infinite; }
 .combined-panel {
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
   border: 1px solid rgba(255,255,255,0.03);
@@ -503,8 +507,8 @@ a:focus-visible, button:focus-visible {
 }
 .panel { display: none; }
 .panel.active { display: block; }
-.project-list, .tech-list, .cert-list { margin: 0.5rem 0 0 1.15rem; }
-.project-list li, .tech-list li, .cert-list li { margin-bottom: 0.45rem; }
+.project-list { margin: 0.5rem 0 0 1.15rem; }
+.project-list li { margin-bottom: 0.45rem; }
 
 
 #contact a:hover {
@@ -622,10 +626,8 @@ footer {
   .project-descriptions .description.active {
     display: block;
   }
-}
 
-/* Mobile adjustments for certificate images */
-@media (max-width: 600px) {
+  /* Mobile adjustments for certificate images */
   .slide img {
     max-width: 80%;
     max-height: 220px;
