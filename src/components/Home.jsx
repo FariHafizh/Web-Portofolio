@@ -21,8 +21,8 @@ export default function Home() {
 								target={btn.external ? '_blank' : undefined}
 								rel={btn.external ? 'noopener noreferrer' : undefined}
 							>
-							{btn.label}
-						</a>
+								{btn.label}
+							</a>
 						))}
 					</div>
 				</div>
