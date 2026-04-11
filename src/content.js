@@ -9,7 +9,7 @@
 
 export const content = {
   site: {
-    title: "Fari's Website",
+    title: "Deku's Website",
   },
 
   // Navbar
@@ -26,7 +26,7 @@ export const content = {
   // Kamu boleh ubah isinya, yang penting id unik.
   homeData: [
     { id: 1, text: 'Ready to Develop' },
-    { id: 2, firstName: 'Fari Hafizh', lastName: 'Nugroho' },
+    { id: 2, firstName: 'Izuku', lastName: 'Midoriya' },
     { id: 3, position: [{ text: 'Web Developer' }, { text: 'UI/UX Designer' }] },
     {
       id: 4,
