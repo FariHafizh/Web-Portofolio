@@ -1,49 +1,61 @@
 /**
  * PUSAT TEKS / COPY WEBSITE.
  *
- * Catatan:
- * - Simpan hal yang sifatnya "teks" di sini (judul, label, intro).
- * - Data list (projects, experience, tech stack, dll) ada di `src/data.js`.
- * - ID pada `homeData` harus unik.
+ * Aturan main:
+ * - File ini HANYA untuk teks (judul, label, intro). Semua dalam Bahasa Inggris
+ *   supaya konsisten dengan isi website.
+ * - Data berbentuk list (experience, projects, tech stack, certificates, contact)
+ *   ada di `src/data.js`.
  */
 
 export const content = {
   site: {
-    title: "Deku's Website",
+    // Dipakai di navbar, tab browser, dan footer.
+    name: 'Fari Hafizh Nugroho',
+    tagline: 'Web Developer & UI/UX Designer',
   },
 
-  // Navbar
-  nav: {
-    links: [
-      { id: 1, href: '#home', label: 'Home' },
-      { id: 2, href: '#experience', label: 'Experience' },
-      { id: 3, href: '#combined-content', label: 'Portfolio' },
-      { id: 4, href: '#contact', label: 'Contact' },
-    ],
-  },
-
-  // Home / Hero (contoh struktur sesuai permintaan)
-  // Kamu boleh ubah isinya, yang penting id unik.
-  homeData: [
-    { id: 1, text: 'Ready to Develop' },
-    { id: 2, firstName: 'Izuku', lastName: 'Midoriya' },
-    { id: 3, position: [{ text: 'Web Developer' }, { text: 'UI/UX Designer' }] },
-    {
-      id: 4,
-      text:
-        "Hello! I'm a Computer Science student at IPB University with a strong passion for web development and UI/UX design. I am always eager to learn new technologies and collaborate on challenging and innovative projects.",
-    },
-    { id: 5, profileImageAlt: 'Profile Picture' },
+  // Navbar. `href` harus cocok dengan id section di komponen.
+  nav: [
+    { href: '#home', label: 'Home' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#contact', label: 'Contact' },
   ],
 
-  // Section titles
-  sections: {
-    experienceTitle: 'Experience',
-    portfolioTitle: 'Portfolio',
-    contactTitle: 'Contact',
+  // Home / Hero
+  home: {
+    greeting: 'Ready to develop',
+    firstName: 'Fari Hafizh',
+    lastName: 'Nugroho',
+    roles: ['Web Developer', 'UI/UX Designer'],
+    bio:
+      "I'm a Computer Science student at IPB University with a strong passion for web " +
+      'development and UI/UX design. I enjoy turning ideas into clean, accessible ' +
+      'interfaces, and I am always eager to learn new technologies and collaborate on ' +
+      'challenging projects.',
+    // Ganti foto: taruh file baru di `public/assets/profile_pic/`, lalu ubah path ini.
+    profileImage: 'assets/profile_pic/profile.svg',
+    profileImageAlt: 'Portrait of Fari Hafizh Nugroho',
   },
 
-  // Portfolio labels
+  // Judul + kalimat pengantar tiap section.
+  sections: {
+    experience: {
+      title: 'Experience',
+      intro: 'Roles and organisations I have contributed to.',
+    },
+    portfolio: {
+      title: 'Portfolio',
+      intro: 'Selected work, the tools I use, and the courses I have completed.',
+    },
+    contact: {
+      title: 'Contact',
+      intro: 'Feel free to reach out for collaboration or opportunities.',
+    },
+  },
+
+  // Label di dalam section Portfolio.
   portfolio: {
     tabs: {
       projects: 'Projects',
@@ -52,21 +64,28 @@ export const content = {
     },
     panels: {
       projectsTitle: 'Projects',
-      projectsIntro:
-        'Berisi ringkasan project yang pernah saya kerjakan. Contoh: personal website, web apps, dsb.',
-      techStackTitle: 'My Tech Stack',
-      certificatesTitle: 'Certificate',
+      projectsIntro: 'A summary of the projects I have built.',
+      techStackTitle: 'Tech Stack',
+      techStackIntro: 'Tools and technologies I work with regularly.',
+      certificatesTitle: 'Certificates',
+      certificatesIntro: 'Courses I have completed.',
+    },
+    project: {
+      liveDemo: 'Live Demo',
+      sourceCode: 'Source Code',
     },
     slider: {
       prev: 'Previous',
       next: 'Next',
       prevAria: 'Previous certificate',
       nextAria: 'Next certificate',
-      dotsAria: 'Certificate slide dots',
+      dotsAria: 'Certificate slides',
+      goToSlide: 'Go to certificate',
     },
   },
 
   footer: {
-    copyright: '© 2024 Fari Hafizh Nugroho. All rights reserved.',
+    // Tahun diisi otomatis oleh komponen Footer.
+    rights: 'All rights reserved.',
   },
 };

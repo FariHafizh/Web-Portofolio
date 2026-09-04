@@ -1,59 +1,106 @@
-# Web Portofolio
+# Web Portfolio
 
-Template website portofolio modern berbasis React + Vite.
+Website portofolio pribadi **Fari Hafizh Nugroho**, dibuat dengan React + Vite.
 
-Live Demo: (https://web-portofolio-sage-omega.vercel.app/)
+**Live demo:** https://web-portofolio-sage-omega.vercel.app/
 
-## Cara Menjalankan
-1. Buka terminal
-2. Ketik `npm install` untuk menginstall dependencies
-3. Ketik `npm run dev` untuk menjalankan di browser
+---
 
-## Cara Mengubah Isi 
-- Ubah teks (judul, bio, label tombol, dll): `src/content.js`
-- Ubah data (experience, projects, tech stack, certificates, contact): `src/data.js`
-- Gambar ada di folder: `public/assets/`
+## Menjalankan di Komputer Sendiri
 
-Catatan: file `src/legacyDom.js` mengatur slider & tab (jangan ubah ID/class HTML yang sudah ada).
+Butuh [Node.js](https://nodejs.org/) versi LTS.
 
-Untuk panduan lebih detail, lihat `CUSTOMIZATION_GUIDE.md`.
+```bash
+npm install    # sekali saja, untuk memasang dependencies
+npm run dev    # jalankan di http://localhost:5173
+```
 
-## Checklist Kustomisasi Cepat 
-- Ganti judul website: `src/content.js` → `content.site.title`
-- Ganti nama & bio (Home): `src/content.js` → `content.homeData`
-- Ganti tombol di section Home: `src/data.js` → `HomeButtons`
-- Ganti pengalaman: `src/data.js` → `Experience`
-- Ganti project: `src/data.js` → `Project`
-- Ganti daftar skill/stack: `src/data.js` → `TechStack`
-- Ganti certificates + deskripsi: `src/data.js` → `Certificates`
-- Ganti kontak: `src/data.js` → `Contact`
-- Ganti foto profil: ganti file di `public/assets/profile_pic/` (atau ubah path di komponen bila diperlukan)
+Perintah lain:
 
-## Deploy (Hosting)
+| Perintah          | Fungsi                                          |
+| ----------------- | ----------------------------------------------- |
+| `npm run build`   | Build untuk production ke folder `dist/`        |
+| `npm run preview` | Melihat hasil build secara lokal                |
+| `npm run lint`    | Memeriksa kualitas kode dengan ESLint           |
+
+---
+
+## Cara Mengubah Isi Website
+
+Semua teks dan data dipusatkan di dua file, jadi tidak perlu menyentuh komponen:
+
+| File             | Isinya                                                          |
+| ---------------- | --------------------------------------------------------------- |
+| `src/content.js` | Teks & label: nama, tagline, bio, menu, judul section            |
+| `src/data.js`    | Data list: `homeButtons`, `experiences`, `projects`, `techStack`, `certificates`, `contacts` |
+| `public/assets/` | Semua gambar: `certificate/`, `experience/`, `profile_pic/`, `stack/` |
+| `src/index.css`  | Warna tema — lihat bagian **1. DESIGN TOKENS** di paling atas     |
+
+Dua hal yang paling sering bikin error: setiap item di `data.js` wajib punya
+`id` yang **unik**, dan path gambar ditulis **tanpa** garis miring di depan
+(contoh: `assets/stack/react.png`).
+
+> **Foto profil saat ini masih placeholder** (`profile.svg`).
+> Ganti dengan foto asli: taruh file di `public/assets/profile_pic/`, lalu ubah
+> `content.home.profileImage` di `src/content.js`.
+
+📖 **Panduan lengkap dengan contoh kode ada di
+[CUSTOMIZATION_GUIDE.md](CUSTOMIZATION_GUIDE.md)** — cara menambah project,
+sertifikat, pengalaman, kontak baru, sampai mengganti warna dan font.
+
+---
+
+## Struktur Project
+
+```
+src/
+├── components/
+│   ├── CertificateSlider.jsx   slider sertifikat (state React)
+│   ├── Contact.jsx             daftar kontak
+│   ├── ContactIcon.jsx         ikon SVG untuk tiap tipe kontak
+│   ├── Experience.jsx          daftar pengalaman
+│   ├── Footer.jsx              footer + tahun otomatis
+│   ├── Home.jsx                hero section
+│   ├── Navbar.jsx              header + navigasi
+│   ├── Portfolio.jsx           tab Projects / Tech Stack / Certificates
+│   └── Section.jsx             pembungkus section (judul + animasi)
+├── hooks/
+│   ├── useActiveSection.js     menandai link navigasi yang aktif
+│   └── useScrollReveal.js      animasi muncul saat di-scroll
+├── assetUrl.js                 membuat URL gambar yang aman untuk subfolder
+├── content.js                  SEMUA TEKS
+├── data.js                     SEMUA DATA LIST
+├── index.css                   styling
+├── App.jsx                     susunan halaman
+└── main.jsx                    entry point
+```
+
+---
+
+## Deploy
+
 ### Vercel
+
 - Build Command: `npm run build`
 - Output Directory: `dist`
-- File `vercel.json` sudah ada untuk SPA rewrite.
+- `vercel.json` sudah menyiapkan rewrite untuk SPA.
 
 ### Netlify
+
 - Build Command: `npm run build`
 - Publish Directory: `dist`
 
-### GitHub Pages (Static)
-- Jalankan `npm run build`
-- Upload isi folder `dist/` ke hosting (atau branch `gh-pages`).
+### GitHub Pages
+
+Jalankan `npm run build`, lalu upload isi folder `dist/` (bukan `src/`).
+
+---
 
 ## Troubleshooting
-- Blank page setelah deploy: pastikan yang di-upload adalah folder `dist/` (bukan `src/`).
-- Slider/tab tidak jalan: jangan ubah `id`/`class` di bagian Portfolio karena dipakai oleh `src/legacyDom.js`.
-- Perintah `npm` tidak dikenal: install Node.js LTS dulu, lalu restart terminal.
-- Port 5173 sudah dipakai: jalankan `npm run dev -- --port 5174`.
 
-## Requirement
-- Disarankan Node.js versi LTS terbaru.
-
-## Struktur Folder
-- /src/components: Lokasi komponen edit
-- /src/content.js: Teks/label website
-- /src/data.js: Data/list (skills, pengalaman, dll)
-- /public/assets: Lokasi gambar
+| Masalah                        | Solusi                                                        |
+| ------------------------------ | ------------------------------------------------------------- |
+| Halaman putih setelah deploy    | Pastikan yang di-upload folder `dist/`, bukan `src/`          |
+| Gambar tidak muncul             | Cek path di `data.js` — tanpa `/` di depan, huruf besar/kecil harus persis |
+| Perintah `npm` tidak dikenal    | Install Node.js LTS, lalu tutup dan buka lagi terminal        |
+| Port 5173 sudah dipakai         | `npm run dev -- --port 5174`                                  |

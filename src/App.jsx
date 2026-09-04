@@ -1,31 +1,22 @@
-import { useEffect } from 'react';
-
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Experience from './components/Experience';
-import Portofolio from './components/Portofolio';
+import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-import { initLegacyPortfolioDom } from './legacyDom';
-
 export default function App() {
-  useEffect(() => {
-    // Inisialisasi tab + slider yang masih berbasis DOM (legacy).
-    // Wajib dipanggil setelah komponen ter-render.
-    initLegacyPortfolioDom();
-  }, []);
-
   return (
     <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      <main>
-        <div id="content">
-          <Home />
-          <Experience />
-          <Portofolio />
-          <Contact />
-        </div>
+      <main id="main">
+        <Home />
+        <Experience />
+        <Portfolio />
+        <Contact />
       </main>
       <Footer />
     </>

@@ -1,40 +1,37 @@
 import { content } from '../content';
-import { Contact as contactData } from '../data';
+import { contacts } from '../data';
+import ContactIcon from './ContactIcon';
+import Section from './Section';
 
 export default function Contact() {
+  const { title, intro } = content.sections.contact;
 
   return (
-    <article id="contact" className="revealable">
-      <h2>{content.sections.contactTitle}</h2>
-      <ul>
-        {contactData.map((item) => {
-          if (item.type === 'email') {
-            return (
-              <li key={item.id}>
-                <strong>{item.label}:</strong> <a href={item.href}>{item.value}</a>
-              </li>
-            );
-          }
-
-          if (item.href) {
-            return (
-              <li key={item.id}>
-                {item.label}:{' '}
-                <a href={item.href} target="_blank" rel="noopener noreferrer">
-                  {item.value}
-                </a>
-              </li>
-            );
-          }
+    <Section id="contact" title={title} intro={intro}>
+      <ul className="contact-list">
+        {contacts.map((item) => {
+          const isExternal = item.href.startsWith('http');
 
           return (
-            <li key={item.id}>
-              {item.label}: {item.value}
+            <li key={item.id} className="contact-item">
+              <ContactIcon type={item.type} />
+              <span className="contact-label">{item.label}</span>
+              {item.href ? (
+                <a
+                  className="text-link"
+                  href={item.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <span>{item.value}</span>
+              )}
             </li>
           );
         })}
       </ul>
-    </article>
+    </Section>
   );
 }
-

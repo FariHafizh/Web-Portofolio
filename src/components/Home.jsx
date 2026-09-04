@@ -1,46 +1,43 @@
 import { assetUrl } from '../assetUrl';
 import { content } from '../content';
-import { HomeButtons } from '../data';
+import { homeButtons } from '../data';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function Home() {
-
-  const name = content.homeData.find(
-    (item) => 'firstName' in item && 'lastName' in item
-  );
-  const bio = content.homeData.find((item) => item.id === 4 && 'text' in item);
-  const altObj = content.homeData.find((item) => 'profileImageAlt' in item);
+  const revealRef = useScrollReveal();
+  const { greeting, firstName, lastName, roles, bio, profileImage, profileImageAlt } =
+    content.home;
 
   return (
-    <article id="home" className="revealable">
-      <div className="about-container">
-        <div className="about-text">
-          <h2>
-            {name?.firstName ?? ''}
-            <br />
-            {name?.lastName ?? ''}
-          </h2>
-          <p>{bio?.text ?? ''}</p>
-          <div className="home-buttons">
-            {HomeButtons.map((btn) => (
-              <a
-                key={btn.id}
-                href={btn.href}
-                target={btn.external ? '_blank' : undefined}
-                rel={btn.external ? 'noopener noreferrer' : undefined}
-              >
-                {btn.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="about-image">
-          <img
-            src={assetUrl('assets/profile_pic/midoriya.png')}
-            alt={altObj?.profileImageAlt ?? 'Profile Picture'}
-          />
+    <section id="home" ref={revealRef} className="section hero revealable">
+      <div className="hero-text">
+        <p className="hero-greeting">{greeting}</p>
+        <h1 className="hero-name">
+          {firstName}
+          <br />
+          {lastName}
+        </h1>
+        <p className="hero-roles">{roles.join(' · ')}</p>
+        <p className="hero-bio">{bio}</p>
+
+        <div className="button-row">
+          {homeButtons.map((button) => (
+            <a
+              key={button.id}
+              className="button"
+              href={button.href}
+              target={button.external ? '_blank' : undefined}
+              rel={button.external ? 'noopener noreferrer' : undefined}
+            >
+              {button.label}
+            </a>
+          ))}
         </div>
       </div>
-    </article>
+
+      <div className="hero-image">
+        <img src={assetUrl(profileImage)} alt={profileImageAlt} />
+      </div>
+    </section>
   );
 }
-

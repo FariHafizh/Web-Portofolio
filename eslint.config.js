@@ -1,9 +1,31 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js';
+import globals from 'globals';
+import pluginReact from 'eslint-plugin-react';
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,jsx}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
-  pluginReact.configs.flat.recommended,
-]);
+export default [
+  { ignores: ['dist/**', 'node_modules/**'] },
+  js.configs.recommended,
+  {
+    files: ['**/*.{js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: globals.browser,
+      parserOptions: { ecmaFeatures: { jsx: true } },
+    },
+    plugins: { react: pluginReact },
+    settings: { react: { version: 'detect' } },
+    rules: {
+      ...pluginReact.configs.flat.recommended.rules,
+      // React 17+ tidak perlu `import React` hanya untuk memakai JSX.
+      'react/react-in-jsx-scope': 'off',
+      'react/jsx-uses-react': 'off',
+      // Project ini tidak memakai PropTypes / TypeScript.
+      'react/prop-types': 'off',
+    },
+  },
+  {
+    files: ['*.cjs'],
+    languageOptions: { sourceType: 'commonjs', globals: globals.node },
+  },
+];

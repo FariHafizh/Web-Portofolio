@@ -1,126 +1,143 @@
 /**
  * PUSAT DATA LIST WEBSITE.
  *
- * Format:
+ * Aturan main:
  * - Setiap export adalah array of objects.
  * - Setiap object WAJIB punya `id` unik (dipakai React sebagai key).
+ * - Path gambar ditulis relatif terhadap folder `public/` (tanpa `/` di depan).
+ * - Teks yang bukan list (judul, intro, label) ada di `src/content.js`.
  */
 
-export const HomeButtons = [
-  { id: 1, label: 'CS2', href: 'https://cswatch.in/player/76561199317671038', external: true },
-  { id: 2, label: 'Portfolio', href: '#combined-content', external: false },
-  { id: 3, label: 'Button 3', href: '#', external: true },
+/** Tombol di section Home. `external: true` akan dibuka di tab baru. */
+export const homeButtons = [
+  { id: 1, label: 'View Portfolio', href: '#portfolio', external: false },
+  { id: 2, label: 'Get in Touch', href: '#contact', external: false },
 ];
 
-export const Experience = [
+/** Riwayat pengalaman, urut dari yang paling baru. `logo` boleh dikosongkan (''). */
+export const experiences = [
   {
     id: 1,
-    role: 'IT Analyst — Komdigi (Internship)',
-    meta: 'Sep 2025 — November 2025 · Jakarta, Indonesia · On-site',
+    role: 'IT Analyst',
+    organization: 'Komdigi',
+    meta: 'Internship · Sep 2025 — Nov 2025 · Jakarta, Indonesia · On-site',
+    logo: '',
     description:
-      'Analyzed and defined technical requirements for the Geopos web platform, bridging the gap between stakeholder needs and front-end implementation strategies.',
+      'Analyzed and defined technical requirements for the Geopos web platform, bridging ' +
+      'the gap between stakeholder needs and front-end implementation strategies.',
   },
   {
     id: 2,
-    role: 'Staff of Creative Division — Agriinformatics 2024',
-    meta: 'Jun 2024 — Nov 2024 · Hybrid · Seasonal',
+    role: 'Staff of Creative Division',
+    organization: 'Agriinformatics 2024',
+    meta: 'Seasonal · Jun 2024 — Nov 2024 · Hybrid',
+    logo: 'assets/experience/agriinformatics.png',
     description:
-      'Served as Staff of Creative Division for Agriinformatics 2024. Responsibilities included teamwork and graphic design.',
+      'Produced graphic assets for the event and collaborated closely with the creative ' +
+      'team to keep the visual identity consistent across all publications.',
   },
   {
     id: 3,
-    role: 'Staff of Creative Division — Pekan Ilkmoerz 60',
-    meta: 'Jul 2024 — Oct 2024 · Hybrid · Seasonal',
+    role: 'Staff of Creative Division',
+    organization: 'Pekan Ilkomerz 60',
+    meta: 'Seasonal · Jul 2024 — Oct 2024 · Hybrid',
+    logo: 'assets/experience/pekan-ilkomerz.png',
     description:
-      'Contributed to creative assets and event collateral; worked closely with the events team on design deliverables.',
+      'Contributed to creative assets and event collateral, working closely with the ' +
+      'events team on design deliverables and deadlines.',
   },
   {
     id: 4,
-    role: 'Staff of Creative — IT TODAY IPB',
-    meta: 'Jan 2023 — Oct 2023 · Hybrid · Seasonal',
+    role: 'Staff of Creative Division',
+    organization: 'IT TODAY IPB 2023',
+    meta: 'Seasonal · Jan 2023 — Oct 2023 · Hybrid',
+    logo: 'assets/experience/it-today.jpeg',
     description:
-      'Participated in project management and graphic design tasks for IT TODAY 2023. Gained experience coordinating with cross-functional teams.',
+      'Handled project management and graphic design tasks, gaining hands-on experience ' +
+      'coordinating with cross-functional teams.',
   },
   {
     id: 5,
-    role: 'Content Creator — YouTube',
-    meta: 'Ongoing · YouTube Channel · Remote',
+    role: 'Content Creator',
+    organization: 'YouTube',
+    meta: 'Ongoing · Remote',
+    logo: '',
     description:
-      'Produce video content focused on web development tutorials and project showcases. Managed video planning, editing, and publishing on YouTube.',
-    link: { label: 'Visit YouTube Channel', href: '#' },
+      'Produce video content focused on web development tutorials and project showcases, ' +
+      'handling planning, editing, and publishing end to end.',
   },
 ];
 
-// Struktur contoh Project (lebih lengkap). Komponen saat ini hanya memakai Title & Description singkat.
-export const Project = [
+/** Daftar project. `liveDemo` dan `sourceCode` boleh dikosongkan ('') bila belum ada. */
+export const projects = [
   {
     id: 1,
-    picture: '',
-    Title: 'Personal Portfolio',
-    Description: 'Website ini (HTML, CSS, JS)',
-    Link: [{ LiveDemo: '' }, { GitHub: '' }],
-    Technologies: ['HTML', 'CSS', 'JavaScript'],
-    KeyFeature: [{ text: '' }],
-  },
-  {
-    id: 2,
-    picture: '',
-    Title: 'Project A',
-    Description: 'Deskripsi singkat project A.',
-    Link: [{ LiveDemo: '' }, { GitHub: '' }],
-    Technologies: [],
-    KeyFeature: [{ text: '' }],
+    title: 'Personal Portfolio Website',
+    description:
+      'A responsive single-page portfolio built with React and Vite, featuring a tabbed ' +
+      'portfolio section, an accessible certificate slider, and scroll-reveal animations.',
+    technologies: ['React', 'Vite', 'JavaScript', 'CSS'],
+    liveDemo: 'https://web-portofolio-sage-omega.vercel.app/',
+    sourceCode: 'https://github.com/FariHafizh/Web-Portofolio',
   },
 ];
 
-export const TechStack = [
-  { id: 1, img: 'assets/stack/figma.png', alt: 'figma', label: 'Figma' },
-  { id: 2, img: 'assets/stack/ps.png', alt: 'photoshop', label: 'Adobe Photoshop' },
-  { id: 3, img: 'assets/stack/ae.png', alt: 'after effect', label: 'Adobe After Effect' },
-  { id: 4, img: 'assets/stack/alightmotion.png', alt: 'alight motion', label: 'Alight Motion' },
-  { id: 5, img: 'assets/stack/PHP-logo.svg.png', alt: 'php', label: 'PHP' },
-  { id: 6, img: 'assets/stack/HTML5_logo_and_wordmark.svg.png', alt: 'html', label: 'HTML' },
-  { id: 7, img: 'assets/stack/CSS3_logo_and_wordmark.svg.png', alt: 'css', label: 'CSS' },
-  { id: 8, img: 'assets/stack/Unofficial_JavaScript_logo_2.svg.png', alt: 'javascript', label: 'Javascript' },
-  { id: 9, img: 'assets/stack/React_Logo_SVG.svg.png', alt: 'react', label: 'React' },
-  { id: 10, img: 'assets/stack/github_logo_icon_229278.png', alt: 'github', label: 'GitHub' },
+/** Tools & teknologi. Gambar ada di `public/assets/stack/`. */
+export const techStack = [
+  { id: 1, img: 'assets/stack/html.png', label: 'HTML' },
+  { id: 2, img: 'assets/stack/css.png', label: 'CSS' },
+  { id: 3, img: 'assets/stack/javascript.png', label: 'JavaScript' },
+  { id: 4, img: 'assets/stack/react.png', label: 'React' },
+  { id: 5, img: 'assets/stack/php.png', label: 'PHP' },
+  { id: 6, img: 'assets/stack/github.png', label: 'GitHub' },
+  { id: 7, img: 'assets/stack/figma.png', label: 'Figma' },
+  { id: 8, img: 'assets/stack/photoshop.png', label: 'Adobe Photoshop' },
+  { id: 9, img: 'assets/stack/after-effects.png', label: 'Adobe After Effects' },
+  { id: 10, img: 'assets/stack/alight-motion.png', label: 'Alight Motion' },
 ];
 
-export const Certificates = [
+/** Sertifikat. Gambar ada di `public/assets/certificate/`. */
+export const certificates = [
   {
     id: 1,
-    img: 'assets/certificate/Sertifikat Belajar Dasar Pemrograman Web_page-0001.jpg',
-    alt: 'sertifikat',
+    img: 'assets/certificate/web-programming-basics.jpg',
     title: 'Belajar Dasar Pemrograman Web',
-    description: 'Learn the basics of web programming, including HTML, CSS, and JavaScript.',
+    issuer: 'Dicoding',
+    description:
+      'The fundamentals of web programming, covering HTML, CSS, and JavaScript.',
   },
   {
     id: 2,
-    img: 'assets/certificate/sertifikat_course_256_3755033_250624172216_page-0001.jpg',
-    alt: 'sertifikat',
-    title: 'Belajar Dasar Pemrograman Javascript',
+    img: 'assets/certificate/javascript-basics.jpg',
+    title: 'Belajar Dasar Pemrograman JavaScript',
+    issuer: 'Dicoding',
     description:
-      'A course introducing the basics of JavaScript programming, covering fundamental concepts, syntax, and practical applications for web development.',
+      'Core JavaScript concepts and syntax, and how to apply them in web development.',
   },
   {
     id: 3,
-    img: 'assets/certificate/sertifikat_course_615_3755033_241224160035_page-0001.jpg',
-    alt: 'sertifikat',
-    title: 'Belajar Dasar Data Science',
+    img: 'assets/certificate/front-end-basics.jpg',
+    title: 'Belajar Membuat Front-End Web untuk Pemula',
+    issuer: 'Dicoding',
     description:
-      'A course introducing the basics of data science, including data analysis, visualization, and machine learning concepts using popular tools and libraries.',
+      'Front-end development fundamentals, from page structure to styling and interaction.',
   },
   {
     id: 4,
-    img: 'assets/certificate/sertifikat_course_315_3755033_230624231439_page-0001.jpg',
-    alt: 'sertifikat',
-    title: 'Belajar Membuat Front-End Web untuk Pemula',
+    img: 'assets/certificate/data-science-basics.jpg',
+    title: 'Belajar Dasar Data Science',
+    issuer: 'Dicoding',
     description:
-      'A course focused on the fundamentals of front-end web development, covering HTML, CSS, and JavaScript basics to help beginners create their first web pages.',
+      'An introduction to data science, including data analysis, visualization, and ' +
+      'basic machine learning concepts.',
   },
 ];
 
-export const Contact = [
+/**
+ * Kontak. `type` menentukan ikon yang dipakai (lihat `src/components/Contact.jsx`):
+ * 'email' | 'linkedin' | 'github' | 'instagram'.
+ */
+export const contacts = [
   {
     id: 1,
     type: 'email',
@@ -128,13 +145,25 @@ export const Contact = [
     value: 'farihafizh741@gmail.com',
     href: 'mailto:farihafizh741@gmail.com',
   },
-  { id: 2, type: 'instagram', label: 'Instagram', value: '@farihfzh', href: '' },
   {
-    id: 3,
+    id: 2,
     type: 'linkedin',
     label: 'LinkedIn',
     value: 'fari-hafizh-nugroho',
     href: 'https://www.linkedin.com/in/fari-hafizh-nugroho-848552248/',
   },
-  { id: 4, type: 'github', label: 'GitHub', value: 'FariHafizh', href: 'https://github.com/FariHafizh' },
+  {
+    id: 3,
+    type: 'github',
+    label: 'GitHub',
+    value: 'FariHafizh',
+    href: 'https://github.com/FariHafizh',
+  },
+  {
+    id: 4,
+    type: 'instagram',
+    label: 'Instagram',
+    value: '@farihfzh',
+    href: 'https://www.instagram.com/farihfzh/',
+  },
 ];
