@@ -28,36 +28,49 @@ export const experiences = [
   },
   {
     id: 2,
-    role: 'Staff of Creative Division',
-    organization: 'Agriinformatics 2024',
-    meta: 'Seasonal · Jun 2024 — Nov 2024 · Hybrid',
-    logo: 'assets/experience/agriinformatics.png',
+    organization: 'Himpunan Mahasiswa Ilmu Komputer (HIMALKOM)',
+    organizationType: 'Organization / Committee',
+    meta: 'Jan 2023 — Nov 2024 · IPB University',
+    logo: '',
+    initials: 'HK',
     description:
-      'Produced graphic assets for the event and collaborated closely with the creative ' +
-      'team to keep the visual identity consistent across all publications.',
+      'Active creative contributor and committee member across key annual flagships and ' +
+      'departmental programs, driving visual branding and event collateral.',
+    subItems: [
+      {
+        id: '2-1',
+        role: 'Staff of Creative Division',
+        event: 'Agriinformatics 2024',
+        meta: 'Seasonal · Jun 2024 — Nov 2024 · Hybrid',
+        logo: 'assets/experience/agriinformatics.png',
+        description:
+          'Produced graphic assets for the event and collaborated closely with the creative ' +
+          'team to keep the visual identity consistent across all publications.',
+      },
+      {
+        id: '2-2',
+        role: 'Staff of Creative Division',
+        event: 'Pekan Ilkomerz 60',
+        meta: 'Seasonal · Jul 2024 — Oct 2024 · Hybrid',
+        logo: 'assets/experience/pekan-ilkomerz.png',
+        description:
+          'Contributed to creative assets and event collateral, working closely with the ' +
+          'events team on design deliverables and deadlines.',
+      },
+      {
+        id: '2-3',
+        role: 'Staff of Creative Division',
+        event: 'IT TODAY IPB 2023',
+        meta: 'Seasonal · Jan 2023 — Oct 2023 · Hybrid',
+        logo: 'assets/experience/it-today.jpeg',
+        description:
+          'Handled project management and graphic design tasks, gaining hands-on experience ' +
+          'coordinating with cross-functional teams.',
+      },
+    ],
   },
   {
     id: 3,
-    role: 'Staff of Creative Division',
-    organization: 'Pekan Ilkomerz 60',
-    meta: 'Seasonal · Jul 2024 — Oct 2024 · Hybrid',
-    logo: 'assets/experience/pekan-ilkomerz.png',
-    description:
-      'Contributed to creative assets and event collateral, working closely with the ' +
-      'events team on design deliverables and deadlines.',
-  },
-  {
-    id: 4,
-    role: 'Staff of Creative Division',
-    organization: 'IT TODAY IPB 2023',
-    meta: 'Seasonal · Jan 2023 — Oct 2023 · Hybrid',
-    logo: 'assets/experience/it-today.jpeg',
-    description:
-      'Handled project management and graphic design tasks, gaining hands-on experience ' +
-      'coordinating with cross-functional teams.',
-  },
-  {
-    id: 5,
     role: 'Content Creator',
     organization: 'YouTube',
     meta: 'Ongoing · Remote',

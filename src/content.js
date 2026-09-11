@@ -57,16 +57,17 @@ export const content = {
 
   // Label di dalam section Portfolio.
   portfolio: {
+    techStack: {
+      title: 'Tech Stack',
+      intro: 'Technologies and tools I work with regularly.',
+    },
     tabs: {
       projects: 'Projects',
-      techStack: 'Tech Stack',
       certificates: 'Certificates',
     },
     panels: {
       projectsTitle: 'Projects',
       projectsIntro: 'A summary of the projects I have built.',
-      techStackTitle: 'Tech Stack',
-      techStackIntro: 'Tools and technologies I work with regularly.',
       certificatesTitle: 'Certificates',
       certificatesIntro: 'Courses I have completed.',
     },

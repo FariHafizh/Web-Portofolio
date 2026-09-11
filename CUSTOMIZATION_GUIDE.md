@@ -104,6 +104,9 @@ sengaja dibuat memudar agar menyatu dengan latar.
 
 File: `src/data.js` → `experiences`
 
+Tersedia dua format: entri tunggal (pekerjaan/magang biasa) atau entri gabungan dengan sub-kepanitiaan (misalnya organisasi kampus seperti HIMALKOM).
+
+**Format Tunggal:**
 ```js
 {
   id: 6,                                     // harus unik!
@@ -115,7 +118,31 @@ File: `src/data.js` → `experiences`
 },
 ```
 
+**Format Organisasi / Kepanitiaan (dengan sub-kegiatan):**
+```js
+{
+  id: 7,
+  organization: 'Himpunan Mahasiswa Ilmu Komputer (HIMALKOM)',
+  organizationType: 'Organization / Committee',
+  meta: 'Jan 2023 — Nov 2024 · IPB University',
+  logo: '',                                  // otomatis inisial (misal 'HK') jika kosong
+  initials: 'HK',                            // opsional
+  description: 'Ringkasan peran organisasi umum.',
+  subItems: [
+    {
+      id: '7-1',
+      role: 'Staff of Creative Division',
+      event: 'Agriinformatics 2024',
+      meta: 'Seasonal · Jun 2024 — Nov 2024 · Hybrid',
+      logo: 'assets/experience/agriinformatics.png',
+      description: 'Apa yang dikerjakan di kepanitiaan ini.',
+    },
+  ],
+},
+```
+
 - Urutkan dari yang **paling baru di atas**.
+- Bagian Experience menggunakan **Modern Vertical Timeline** yang menghubungkan seluruh pengalaman secara kronologis.
 - Kalau `logo` dikosongkan (`''`), otomatis muncul inisial organisasi.
 - Logo disimpan di `public/assets/experience/`.
 
@@ -142,6 +169,8 @@ dikosongkan, tombolnya tidak akan muncul.
 ---
 
 ## 6. Menambah tech stack
+
+Tech Stack kini ditampilkan di bagian atas section Portfolio sebagai etalase visual (display-only: logo dan nama software).
 
 1. Salin logo (format PNG latar transparan paling bagus) ke `public/assets/stack/`.
 2. Tambahkan di `src/data.js` → `techStack`:

@@ -335,7 +335,7 @@ main {
   -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
 }
 
-/* 7. CARDS & EXPERIENCE --------------------------------------------------- */
+/* 7. CARDS & EXPERIENCE (VERTICAL TIMELINE) -------------------------------- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -356,10 +356,91 @@ main {
   transform: translateY(-3px);
 }
 
+/* Timeline Layout */
+.timeline {
+  position: relative;
+  margin-top: var(--space-lg);
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--color-accent) 0%,
+    var(--color-border-strong) 50%,
+    var(--color-border) 100%
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-lg);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 10px rgba(41, 171, 135, 0.45);
+  z-index: 1;
+}
+
+.timeline-marker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.timeline-card {
+  position: relative;
+}
+
 .experience-header {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+}
+
+.experience-heading-text {
+  flex: 1 1 auto;
+}
+
+.experience-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.experience-badge {
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.03em;
 }
 
 .experience-logo {
@@ -383,10 +464,11 @@ main {
 
 .experience-role {
   font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .experience-org {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-accent);
 }
 
@@ -402,14 +484,116 @@ main {
   color: var(--color-text-muted);
 }
 
+/* Sub-timeline for HIMALKOM events */
+.timeline-sublist {
+  position: relative;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.timeline-subitem {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--transition);
+}
+
+.timeline-subitem:hover {
+  border-color: var(--color-border-strong);
+}
+
+.timeline-subitem-line {
+  display: none;
+}
+
+.timeline-subitem-content {
+  flex: 1 1 auto;
+}
+
+.timeline-subitem-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.timeline-sub-logo {
+  width: 38px;
+  height: 38px;
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.timeline-sub-event {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.timeline-sub-role {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+.timeline-sub-meta {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.timeline-sub-description {
+  margin-top: var(--space-xs);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
 /* 8. TABS & PANELS -------------------------------------------------------- */
+.portfolio-stack-section {
+  margin-top: var(--space-lg);
+}
+
+.portfolio-subheading {
+  margin-bottom: var(--space-sm);
+}
+
+.portfolio-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.portfolio-subintro {
+  margin-top: var(--space-xs);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.portfolio-tabs-section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
 .tabs {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
   width: fit-content;
   max-width: 100%;
-  margin-top: var(--space-lg);
+  margin-top: 0;
   padding: var(--space-xs);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
@@ -518,6 +702,25 @@ main {
   width: 44px;
   height: 44px;
   object-fit: contain;
+}
+
+/* Display-only version (no interaction) */
+.stack-display-only {
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.stack-display-only .stack-item {
+  background: var(--color-surface);
+  padding: var(--space-sm) var(--space-xs);
+  cursor: default;
+  user-select: none;
+}
+
+.stack-display-only .stack-item:hover {
+  border-color: var(--color-border);
+  transform: none;
 }
 
 /* 10. CERTIFICATE SLIDER -------------------------------------------------- */
@@ -746,6 +949,44 @@ main {
 
   .button-row .button {
     flex: 1 1 auto;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-marker {
+    left: -1.5rem;
+    width: 12px;
+    height: 12px;
+    top: 1.25rem;
+  }
+
+  .timeline-marker-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .timeline-subitem {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .stack-display-only {
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+    gap: var(--space-xs);
+  }
+
+  .stack-display-only .stack-item {
+    padding: var(--space-xs);
+  }
+
+  .stack-display-only .stack-item img {
+    width: 36px;
+    height: 36px;
   }
 }
 
