@@ -12,7 +12,7 @@ export const content = {
   site: {
     // Dipakai di navbar, tab browser, dan footer.
     name: 'Fari Hafizh Nugroho',
-    tagline: 'Web Developer & UI/UX Designer',
+    tagline: 'Manusia Biasa',
   },
 
   // Navbar. `href` harus cocok dengan id section di komponen.
@@ -34,8 +34,9 @@ export const content = {
       'development and UI/UX design. I enjoy turning ideas into clean, accessible ' +
       'interfaces, and I am always eager to learn new technologies and collaborate on ' +
       'challenging projects.',
-    // Ganti foto: taruh file baru di `public/assets/profile_pic/`, lalu ubah path ini.
-    profileImage: 'assets/profile_pic/profile.svg',
+    // Foto profil dimatikan sementara sesuai permintaan (set ke null).
+    // Untuk mengaktifkan kembali, masukkan path foto: 'assets/profile_pic/profile.svg'.
+    profileImage: null,
     profileImageAlt: 'Portrait of Fari Hafizh Nugroho',
   },
 
@@ -69,11 +70,7 @@ export const content = {
       projectsTitle: 'Projects',
       projectsIntro: 'A summary of the projects I have built.',
       certificatesTitle: 'Certificates',
-      certificatesIntro: 'Courses I have completed.',
-    },
-    project: {
-      liveDemo: 'Live Demo',
-      sourceCode: 'Source Code',
+      certificatesIntro: 'Some of the certificates I have',
     },
     slider: {
       prev: 'Previous',

@@ -7,9 +7,14 @@ export default function Home() {
   const revealRef = useScrollReveal();
   const { greeting, firstName, lastName, roles, bio, profileImage, profileImageAlt } =
     content.home;
+  const hasImage = Boolean(profileImage);
 
   return (
-    <section id="home" ref={revealRef} className="section hero revealable">
+    <section
+      id="home"
+      ref={revealRef}
+      className={`section hero revealable ${hasImage ? 'has-image' : 'no-image'}`}
+    >
       <div className="hero-text">
         <p className="hero-greeting">{greeting}</p>
         <h1 className="hero-name">
@@ -35,9 +40,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="hero-image">
-        <img src={assetUrl(profileImage)} alt={profileImageAlt} />
-      </div>
+      {hasImage ? (
+        <div className="hero-image">
+          <img src={assetUrl(profileImage)} alt={profileImageAlt} />
+        </div>
+      ) : null}
     </section>
   );
 }

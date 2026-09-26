@@ -18,70 +18,68 @@ export const homeButtons = [
 export const experiences = [
   {
     id: 1,
-    role: 'IT Analyst',
+    role: 'Full-Stack Web Developer Cohort',
+    organization: 'Coding Camp 2026 powered by DBS Foundation',
+    meta: 'Feb 2026 — Jul 2026 · Hybrid',
+    logo: 'assets/experience/logo coding camp.webp',
+    description:
+      'Built and maintained RESTful APIs with Python and Flask to connect the React frontend, ' +
+      'PostgreSQL databases, and machine learning services. Designed database schemas, implemented ' +
+      'application features, and handled deployment, debugging, and system testing.',
+  },
+  {
+    id: 2,
+    role: 'IT Analyst / IT Support',
     organization: 'Komdigi',
-    meta: 'Internship · Sep 2025 — Nov 2025 · Jakarta, Indonesia · On-site',
-    logo: '',
+    meta: 'Internship · Aug 2025 — Nov 2025 · Jakarta, Indonesia · On-site',
+    logo: 'assets/experience/logo komdigi.webp',
     description:
       'Analyzed and defined technical requirements for the Geopos web platform, bridging ' +
       'the gap between stakeholder needs and front-end implementation strategies.',
   },
   {
-    id: 2,
+    id: 3,
     organization: 'Himpunan Mahasiswa Ilmu Komputer (HIMALKOM)',
     organizationType: 'Organization / Committee',
     meta: 'Jan 2023 — Nov 2024 · IPB University',
-    logo: '',
+    logo: 'assets/experience/logo himalkom.webp',
     initials: 'HK',
     description:
       'Active creative contributor and committee member across key annual flagships and ' +
       'departmental programs, driving visual branding and event collateral.',
     subItems: [
       {
-        id: '2-1',
+        id: '3-1',
         role: 'Staff of Creative Division',
         event: 'Agriinformatics 2024',
         meta: 'Seasonal · Jun 2024 — Nov 2024 · Hybrid',
-        logo: 'assets/experience/agriinformatics.png',
         description:
           'Produced graphic assets for the event and collaborated closely with the creative ' +
           'team to keep the visual identity consistent across all publications.',
       },
       {
-        id: '2-2',
+        id: '3-2',
         role: 'Staff of Creative Division',
         event: 'Pekan Ilkomerz 60',
         meta: 'Seasonal · Jul 2024 — Oct 2024 · Hybrid',
-        logo: 'assets/experience/pekan-ilkomerz.png',
         description:
           'Contributed to creative assets and event collateral, working closely with the ' +
           'events team on design deliverables and deadlines.',
       },
       {
-        id: '2-3',
+        id: '3-3',
         role: 'Staff of Creative Division',
         event: 'IT TODAY IPB 2023',
         meta: 'Seasonal · Jan 2023 — Oct 2023 · Hybrid',
-        logo: 'assets/experience/it-today.jpeg',
         description:
           'Handled project management and graphic design tasks, gaining hands-on experience ' +
           'coordinating with cross-functional teams.',
       },
     ],
   },
-  {
-    id: 3,
-    role: 'Content Creator',
-    organization: 'YouTube',
-    meta: 'Ongoing · Remote',
-    logo: '',
-    description:
-      'Produce video content focused on web development tutorials and project showcases, ' +
-      'handling planning, editing, and publishing end to end.',
-  },
 ];
 
-/** Daftar project. `liveDemo` dan `sourceCode` boleh dikosongkan ('') bila belum ada. */
+/** Daftar project. */
 export const projects = [
   {
     id: 1,
@@ -90,8 +88,6 @@ export const projects = [
       'A responsive single-page portfolio built with React and Vite, featuring a tabbed ' +
       'portfolio section, an accessible certificate slider, and scroll-reveal animations.',
     technologies: ['React', 'Vite', 'JavaScript', 'CSS'],
-    liveDemo: 'https://web-portofolio-sage-omega.vercel.app/',
-    sourceCode: 'https://github.com/FariHafizh/Web-Portofolio',
   },
 ];
 
@@ -107,42 +103,29 @@ export const techStack = [
   { id: 8, img: 'assets/stack/photoshop.png', label: 'Adobe Photoshop' },
   { id: 9, img: 'assets/stack/after-effects.png', label: 'Adobe After Effects' },
   { id: 10, img: 'assets/stack/alight-motion.png', label: 'Alight Motion' },
+  { id: 11, img: 'assets/stack/qgis.webp', label: 'QGIS' },
+  { id: 12, img: 'assets/stack/postgre.webp', label: 'PostgreSQL' },
 ];
 
 /** Sertifikat. Gambar ada di `public/assets/certificate/`. */
 export const certificates = [
   {
     id: 1,
-    img: 'assets/certificate/web-programming-basics.jpg',
-    title: 'Belajar Dasar Pemrograman Web',
-    issuer: 'Dicoding',
+    img: 'assets/certificate/komdigi-internship.jpg',
+    title: 'Praktik Kerja Lapangan (Internship) — Ditjen Ekosistem Digital',
+    issuer: 'Kementerian Komunikasi dan Digital (Komdigi)',
     description:
-      'The fundamentals of web programming, covering HTML, CSS, and JavaScript.',
+      'Certificate of completion for conducting an IT internship at the Directorate General of ' +
+      'Digital Ecosystem, Ministry of Communication and Digital (Komdigi).',
   },
   {
     id: 2,
-    img: 'assets/certificate/javascript-basics.jpg',
-    title: 'Belajar Dasar Pemrograman JavaScript',
-    issuer: 'Dicoding',
+    img: 'assets/certificate/coding-camp-2026.jpg',
+    title: 'Coding Camp 2026 — Full-Stack Web Developer',
+    issuer: 'DBS Foundation & Dicoding',
     description:
-      'Core JavaScript concepts and syntax, and how to apply them in web development.',
-  },
-  {
-    id: 3,
-    img: 'assets/certificate/front-end-basics.jpg',
-    title: 'Belajar Membuat Front-End Web untuk Pemula',
-    issuer: 'Dicoding',
-    description:
-      'Front-end development fundamentals, from page structure to styling and interaction.',
-  },
-  {
-    id: 4,
-    img: 'assets/certificate/data-science-basics.jpg',
-    title: 'Belajar Dasar Data Science',
-    issuer: 'Dicoding',
-    description:
-      'An introduction to data science, including data analysis, visualization, and ' +
-      'basic machine learning concepts.',
+      'Certificate of Completion in Full-Stack Web Development, mastering frontend architecture, ' +
+      'backend APIs, PostgreSQL databases, and full application deployment.',
   },
 ];
 

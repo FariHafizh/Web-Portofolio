@@ -6,4 +6,10 @@ export default defineConfig({
   // Use relative paths so the production build works when served from a subfolder
   // like http://127.0.0.1:55000/dist/ (VS Code Live Server)
   base: './',
+  server: {
+    watch: {
+      usePolling: true,
+      interval: 100,
+    },
+  },
 });

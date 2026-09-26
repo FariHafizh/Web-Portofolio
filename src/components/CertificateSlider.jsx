@@ -69,11 +69,15 @@ export default function CertificateSlider({ items }) {
 
   if (total === 0) return null;
 
-  const activeItem = items[index];
+  const safeIndex = ((index % total) + total) % total;
+  const activeItem = items[safeIndex];
 
   return (
     <div
       className="slider"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={labels.dotsAria}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -84,7 +88,13 @@ export default function CertificateSlider({ items }) {
     >
       <div className="slider-stage">
         {/* `key` memaksa React memasang ulang elemen, sehingga animasinya jalan. */}
-        <figure key={activeItem.id} className={`slide slide-${direction}`}>
+        <figure
+          key={activeItem.id}
+          className={`slide slide-${direction}`}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${safeIndex + 1} of ${total}`}
+        >
           <img
             src={assetUrl(activeItem.img)}
             alt={`Certificate: ${activeItem.title}`}

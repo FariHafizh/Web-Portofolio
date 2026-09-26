@@ -78,6 +78,9 @@ h4 {
 
 p {
   margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
 }
 
 ul,
@@ -290,9 +293,23 @@ main {
 /* 6. HERO ----------------------------------------------------------------- */
 .hero {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr;
   align-items: center;
   gap: var(--space-xl);
+  min-height: calc(70vh - var(--header-height));
+}
+
+.hero.has-image {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.hero.no-image {
+  grid-template-columns: 1fr;
+  max-width: 820px;
+}
+
+.hero.no-image .hero-bio {
+  max-width: 65ch;
 }
 
 .hero-greeting {
@@ -449,7 +466,7 @@ main {
   height: 44px;
   padding: 4px;
   border-radius: var(--radius-sm);
-  background: var(--color-surface-raised);
+  background: #ffffff;
   object-fit: contain;
 }
 
@@ -460,6 +477,7 @@ main {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-accent);
+  background: var(--color-surface-raised);
 }
 
 .experience-role {
@@ -509,10 +527,6 @@ main {
 
 .timeline-subitem:hover {
   border-color: var(--color-border-strong);
-}
-
-.timeline-subitem-line {
-  display: none;
 }
 
 .timeline-subitem-content {
@@ -797,6 +811,7 @@ main {
 .slider-issuer {
   font-size: 0.82rem;
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 .slider-description {
@@ -822,6 +837,7 @@ main {
 }
 
 .slider-dot {
+  position: relative;
   width: 10px;
   height: 10px;
   padding: 0;
@@ -830,6 +846,16 @@ main {
   background: var(--color-border);
   cursor: pointer;
   transition: background-color var(--transition), transform var(--transition);
+}
+
+.slider-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .slider-dot:hover {
@@ -881,6 +907,10 @@ main {
   background: var(--color-surface);
   font-size: 0.88rem;
   color: var(--color-text-muted);
+  text-align: center;
+}
+
+.site-footer p {
   text-align: center;
 }
 

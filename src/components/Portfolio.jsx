@@ -15,7 +15,7 @@ export default function Portfolio() {
   const [activeTab, setActiveTab] = useState(TABS[0].id);
   const tabRefs = useRef([]);
   const { title, intro } = content.sections.portfolio;
-  const { techStack: techStackContent, panels, project: projectLabels } = content.portfolio;
+  const { techStack: techStackContent, panels } = content.portfolio;
 
   // Panah kiri/kanan memindah tab, sesuai pola tab standar (WAI-ARIA).
   function handleTabKeyDown(event, currentIndex) {
@@ -99,29 +99,6 @@ export default function Portfolio() {
                       ))}
                     </ul>
                   ) : null}
-
-                  <div className="project-links">
-                    {project.liveDemo ? (
-                      <a
-                        className="text-link"
-                        href={project.liveDemo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {projectLabels.liveDemo}
-                      </a>
-                    ) : null}
-                    {project.sourceCode ? (
-                      <a
-                        className="text-link"
-                        href={project.sourceCode}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {projectLabels.sourceCode}
-                      </a>
-                    ) : null}
-                  </div>
                 </li>
               ))}
             </ul>

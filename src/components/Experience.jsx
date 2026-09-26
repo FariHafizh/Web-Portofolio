@@ -66,9 +66,6 @@ export default function Experience() {
                   <div className="timeline-sublist">
                     {item.subItems.map((sub) => (
                       <div key={sub.id} className="timeline-subitem">
-                        <div className="timeline-subitem-line" aria-hidden="true">
-                          <span className="timeline-subitem-node" />
-                        </div>
                         <div className="timeline-subitem-content">
                           <div className="timeline-subitem-header">
                             {sub.logo ? (

@@ -4,6 +4,7 @@
  * Penting: Vite bisa deploy di subfolder (BASE_URL), jadi jangan hardcode `/assets/...`.
  */
 export function assetUrl(relativePath) {
+  if (!relativePath) return '';
   const base = import.meta.env.BASE_URL || '/';
   const normalizedBase = base.endsWith('/') ? base : `${base}/`;
   const normalizedPath = relativePath.startsWith('/')
