@@ -79,9 +79,9 @@ export const experiences = [
   },
 ];
 
-const himalkomSlides = Array.from({ length: 12 }, (_, index) => ({
+const himalkomSlides = Array.from({ length: 6 }, (_, index) => ({
   id: index + 1,
-  img: `assets/projects/himalkom/slide-${String(index + 1).padStart(2, '0')}.jpg`,
+  img: `assets/projects/himalkom/slide_${String(index + 1).padStart(2, '0')}.jpg`,
 }));
 
 /** Daftar project. */
