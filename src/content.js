@@ -82,7 +82,7 @@ export const content = {
     },
     // Popup slide project (dipakai ProjectViewer dan kartu project).
     viewer: {
-      viewSlides: 'See the project',
+      viewSlides: 'View Project',
       slidesLabel: 'slides',
       close: 'Close',
       closeAria: 'Close slide viewer',
