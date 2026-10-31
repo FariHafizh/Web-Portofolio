@@ -4,6 +4,7 @@ import { assetUrl } from '../assetUrl';
 import { content } from '../content';
 import { certificates, projects, techStack } from '../data';
 import CertificateSlider from './CertificateSlider';
+import ProjectViewer from './ProjectViewer';
 import Section from './Section';
 
 const TABS = [
@@ -13,9 +14,10 @@ const TABS = [
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState(TABS[0].id);
+  const [selectedProject, setSelectedProject] = useState(null);
   const tabRefs = useRef([]);
   const { title, intro } = content.sections.portfolio;
-  const { techStack: techStackContent, panels } = content.portfolio;
+  const { techStack: techStackContent, panels, viewer: viewerContent } = content.portfolio;
 
   // Panah kiri/kanan memindah tab, sesuai pola tab standar (WAI-ARIA).
   function handleTabKeyDown(event, currentIndex) {
@@ -85,22 +87,40 @@ export default function Portfolio() {
             <p className="panel-intro">{panels.projectsIntro}</p>
 
             <ul className="card-grid">
-              {projects.map((project) => (
-                <li key={project.id} className="card project-card">
-                  <h4 className="project-title">{project.title}</h4>
-                  <p className="project-description">{project.description}</p>
+              {projects.map((project) => {
+                const hasSlides = Boolean(project.slides?.length);
 
-                  {project.technologies.length > 0 ? (
-                    <ul className="tag-list">
-                      {project.technologies.map((technology) => (
-                        <li key={technology} className="tag">
-                          {technology}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </li>
-              ))}
+                return (
+                  <li
+                    key={project.id}
+                    className={hasSlides ? 'card project-card is-clickable' : 'card project-card'}
+                  >
+                    <h4 className="project-title">{project.title}</h4>
+                    <p className="project-description">{project.description}</p>
+
+                    {project.technologies.length > 0 ? (
+                      <ul className="tag-list">
+                        {project.technologies.map((technology) => (
+                          <li key={technology} className="tag">
+                            {technology}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {hasSlides ? (
+                      <button
+                        type="button"
+                        className="project-open"
+                        aria-haspopup="dialog"
+                        onClick={() => setSelectedProject(project)}
+                      >
+                        {viewerContent.viewSlides}
+                      </button>
+                    ) : null}
+                  </li>
+                );
+              })}
             </ul>
           </TabPanel>
 
@@ -111,6 +131,9 @@ export default function Portfolio() {
           </TabPanel>
         </div>
       </div>
+      {selectedProject ? (
+        <ProjectViewer project={selectedProject} onClose={() => setSelectedProject(null)} />
+      ) : null}
     </Section>
   );
 }

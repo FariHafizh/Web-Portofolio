@@ -79,6 +79,11 @@ export const experiences = [
   },
 ];
 
+const himalkomSlides = Array.from({ length: 12 }, (_, index) => ({
+  id: index + 1,
+  img: `assets/projects/himalkom/slide-${String(index + 1).padStart(2, '0')}.jpg`,
+}));
+
 /** Daftar project. */
 export const projects = [
   {
@@ -88,6 +93,15 @@ export const projects = [
       'A responsive single-page portfolio built with React and Vite, featuring a tabbed ' +
       'portfolio section, an accessible certificate slider, and scroll-reveal animations.',
     technologies: ['React', 'Vite', 'JavaScript', 'CSS'],
+  },
+  {
+    id: 2,
+    title: 'HIMALKOM Creative Project',
+    description:
+      'A collection of graphic design work produced as part of the Creative Division at ' +
+      'HIMALKOM IPB, covering event branding, publications, and visual collateral.',
+    technologies: ['Photoshop', 'Figma', 'After Effects'],
+    slides: himalkomSlides,
   },
 ];
 

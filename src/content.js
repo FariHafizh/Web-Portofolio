@@ -80,6 +80,13 @@ export const content = {
       dotsAria: 'Certificate slides',
       goToSlide: 'Go to certificate',
     },
+    // Popup slide project (dipakai ProjectViewer dan kartu project).
+    viewer: {
+      viewSlides: 'View slides',
+      slidesLabel: 'slides',
+      close: 'Close',
+      closeAria: 'Close slide viewer',
+    },
   },
 
   footer: {

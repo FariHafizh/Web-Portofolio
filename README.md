@@ -63,6 +63,7 @@ src/
 │   ├── Home.jsx                hero section
 │   ├── Navbar.jsx              header + navigasi
 │   ├── Portfolio.jsx           tab Projects / Tech Stack / Certificates
+│   ├── ProjectViewer.jsx       dialog untuk melihat slide project
 │   └── Section.jsx             pembungkus section (judul + animasi)
 ├── hooks/
 │   ├── useActiveSection.js     menandai link navigasi yang aktif

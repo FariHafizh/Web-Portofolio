@@ -20,7 +20,8 @@ export default function CertificateSlider({ items }) {
   const labels = content.portfolio.slider;
 
   function goTo(nextIndex) {
-    setDirection(nextIndex > index ? 'next' : 'prev');
+    const isForwardWrap = index === total - 1 && nextIndex === 0;
+    setDirection(nextIndex > index || isForwardWrap ? 'next' : 'prev');
     setIndex(nextIndex);
   }
 
@@ -120,10 +121,10 @@ export default function CertificateSlider({ items }) {
             <li key={item.id}>
               <button
                 type="button"
-                className={itemIndex === index ? 'slider-dot is-active' : 'slider-dot'}
+                className={itemIndex === safeIndex ? 'slider-dot is-active' : 'slider-dot'}
                 onClick={() => goTo(itemIndex)}
                 aria-label={`${labels.goToSlide} ${itemIndex + 1}: ${item.title}`}
-                aria-current={itemIndex === index ? 'true' : undefined}
+                aria-current={itemIndex === safeIndex ? 'true' : undefined}
               />
             </li>
           ))}

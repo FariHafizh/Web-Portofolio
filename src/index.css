@@ -684,6 +684,119 @@ main {
   font-size: 0.9rem;
 }
 
+/* Kartu project yang bisa dibuka (punya slide). Seluruh kartu ikut klik
+   lewat ::after pada tombol (pola "stretched link"). */
+.project-card.is-clickable {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.project-card.is-clickable:focus-within {
+  border-color: var(--color-border-strong);
+}
+
+.project-open {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: var(--space-md) 0 0;
+  border: 0;
+  background: none;
+  color: var(--color-highlight);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.project-open::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+}
+
+.project-open:focus-visible {
+  outline: none;
+}
+
+.project-open:focus-visible::after {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* Popup slide project: slide ditumpuk vertikal, di-scroll ke bawah. */
+.viewer {
+  width: min(900px, 94vw);
+  max-width: none;
+  height: 90vh;
+  height: 90dvh;
+  max-height: none;
+  padding: 0;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.viewer[open] {
+  display: flex;
+}
+
+.viewer::backdrop {
+  background: rgba(1, 16, 11, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.viewer-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+}
+
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.viewer-title {
+  font-size: 1.1rem;
+}
+
+.viewer-count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.viewer-slides {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-height: 0;
+  margin: 0;
+  padding: var(--space-md);
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.viewer-slide img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-raised);
+}
+
 /* 9. TECH STACK ----------------------------------------------------------- */
 .stack-grid {
   display: grid;
