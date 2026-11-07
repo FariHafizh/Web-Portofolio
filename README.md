@@ -2,7 +2,7 @@
 
 Website portofolio pribadi **Fari Hafizh Nugroho**, dibuat dengan React + Vite.
 
-**Live demo:** https://web-portofolio-sage-omega.vercel.app/
+https://farihn.vercel.app/
 
 ---
 
